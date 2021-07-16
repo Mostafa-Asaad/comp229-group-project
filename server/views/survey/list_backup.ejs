@@ -16,8 +16,8 @@
                 <!-- Header Row-->
                 <tr class="d-flex">                    
                         <th class="text-center col-3">Name</th>
-                        <th class="text-center col-3">Start</th>
-                        <th class="text-center col-4">End</th>                    
+                        <th class="text-center col-3">Contact No</th>
+                        <th class="text-center col-4">Email</th>                    
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>                    
                 </tr>
@@ -26,9 +26,9 @@
 
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
                     <tr class="d-flex">
-                            <td class="text-center col-3"><%= SurveyList[count].title %></td>
-                            <td class="text-center col-3"><%= SurveyList[count].startdate %></td>
-                            <td class="text-center col-4"><%= SurveyList[count].enddate %></td>                        
+                            <td class="text-center col-3"><%= SurveyList[count].name %></td>
+                            <td class="text-center col-3"><%= SurveyList[count].contactno %></td>
+                            <td class="text-center col-4"><%= SurveyList[count].email %></td>                        
                             <td class="text-center col-1">
                                 <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit</a>

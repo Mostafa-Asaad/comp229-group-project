@@ -33,14 +33,17 @@ module.exports.displayAddPage = (req, res, next) => {
 
 module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
-        "title": req.body.title,
-        "startdate": req.body.startdate,
-        "enddate": req.body.enddate,
-        "q1": req.body.q1,
-        "q2": req.body.q2,
-        "q3": req.body.q3,
-        "q4": req.body.q4,
-        "q5": req.body.q5,
+        "name": req.body.name,
+        "contactno": req.body.contactno,
+        "email": req.body.email,
+        "accomplish": req.body.accomplish,
+        "recommend": req.body.recommend,
+        "bestmatch": req.body.bestmatch,
+        "easyuse": req.body.easyuse,
+        "satisfied": req.body.satisfied,
+        "competitive": req.body.competitive,
+        "oftenuse": req.body.oftenuse,
+        "comments": req.body.comments
     });
 
     Survey.create(newSurvey, (err, Survey) =>{

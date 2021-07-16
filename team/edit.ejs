@@ -11,49 +11,49 @@
               <div class="form-group">
                 <label for="NameTextField">Title</label>
                 <input type="text" class="form-control" id="NameTextField"
-                placeholder="Survey Name" name="title" value="" required>
+                placeholder="Survey Name" name="title" value="<%= survey.title %>" required>
               </div>
               
               <div class="form-group col-md-3">
                 <label for="">Survey Start Date</label>
-                <input type="date" class="" id=""
-                placeholder="Survey start date" name="startdate" value=""  required>
+                <input type="text" class="form-control datepicker" id=""
+                placeholder="Survey start date" name="startdate" value="<%= survey.startdate %>"  required>
               </div>
 
               <div class="form-group col-md-3">
                 <label for="">Survey End Date</label>
-                <input type="date" class="" id=""
-                placeholder="Survey end date" name="enddate" value=""  required>
+                <input type="text" class="form-control datepicker" id=""
+                placeholder="Survey end date" name="enddate" value="<%= survey.enddate %>"  required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #1</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #1" name="q1" value="" required>
+                placeholder="Questionn #1" name="q1" value="<%= survey.q1 %>" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #2</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #2" name="q2" value="" required>
+                placeholder="Questionn #2" name="q2" value="<%= survey.q2 %>" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #3</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #3" name="q3" value="" required>
+                placeholder="Questionn #3" name="q3" value="<%= survey.q3 %>" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #4</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #4" name="q4" value="" required>
+                placeholder="Questionn #4" name="q4" value="<%= survey.q4 %>" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #5</label>
                 <input type="text" class="form-control" id="NameTextField"
-                placeholder="Questionn #5" name="q5" value="" required>
+                placeholder="Questionn #5" name="q5" value="<%= survey.q5 %>" required>
               </div>
 
               <button class="btn btn-primary " type="submit">
@@ -69,7 +69,7 @@
     </div>
 </div>
 
-<br/><br/><br/>
+
 
 <%- include ../partials/bottom_nav.ejs %>  
 

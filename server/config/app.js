@@ -26,7 +26,7 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
-//let indexRouter = require('../routes/index');
+let indexRouter = require('../routes/index');
 //let usersRouter = require('../routes/users');
 let surveyRouter = require('../routes/survey');
 
@@ -51,15 +51,15 @@ app.use(session({
 }));
 
 // initialize flash
-//app.use(flash());
+app.use(flash());
 
 // initialize passport
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // passport user configuration
-//app.use('/', indexRouter);
 app.use('/', surveyRouter);
+app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);
 

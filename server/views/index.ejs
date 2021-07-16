@@ -1,0 +1,40 @@
+<%- include partials/header.ejs %>
+
+<%- include partials/main_nav.ejs %>
+  <!-- Main Content -->
+  <main class="container" style="background-color: cornsilk;">
+    <div class="row">
+      <div class="offset-md-1 col-md-11">
+        <div class="container-fluid py-5" style="background-color: cornsilk;">     
+          <!-- Home Page  --> 
+          <% if (title == "Home"){ %>
+            <h2 class="display-4 fw-bold">Welcome to COMP229 Group 6 Survey Web Application</h2>
+            <h3>TO DO</h3>
+            <!-- Group member page-->
+            <% } else if (title == "Group Members"){ %>
+              <h2 class="display-4 fw-bold">Group Members</h2>
+              <h3>TO DO</h3>      
+              <!--project detail page-->    
+            <% } else if (title == "Projects"){%>
+              <h2 class="display-4 fw-bold">Project Details</h2>
+              <h3>TO DO</h3> 
+              <!-- Survey page-->
+            <% } else if (title == "Active Survey"){%>
+             <!-- login page--> 
+            <% } else if (title == "Login") {%>  
+              <h2 class="display-4 fw-bold">Project Details</h2>
+              <h3>TO DO</h3>
+            <% } %>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+<%- include partials/bottom_nav.ejs %>  
+
+<%- include partials/footer.ejs %>
+  
+
+
+
+
