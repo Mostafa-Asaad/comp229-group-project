@@ -6,54 +6,66 @@
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
-            <h1>Edit Survey</h1>
+          <h1><%= title %></h1>
             <form class="form" method="POST">
               <div class="form-group">
                 <label for="NameTextField">Title</label>
                 <input type="text" class="form-control" id="NameTextField"
-                placeholder="Survey Name" name="title" value="<%= survey.title %>" required>
+                placeholder="Survey Name" name="title" value="<%= survey.title %>" required readonly>
               </div>
-              
-              <div class="form-group col-md-3">
-                <label for="">Survey Start Date</label>
-                <input type="date" class="" id=""
-                placeholder="Survey start date" name="startdate" value="<%= survey.startdate %>"  required>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label for="">Survey End Date</label>
-                <input type="date" class="" id=""
-                placeholder="Survey end date" name="enddate" value="<%= survey.enddate %>"  required>
-              </div>
-
               <div class="form-group">
                 <label for="NameTextField">Questionn #1</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #1" name="q1" value="<%= survey.q1 %>" required>
+                placeholder="Questionn #1" name="q1" value="<%= survey.q1 %>" required readonly>
+              </div>
+              <div class="form-group">
+                <label for="NameTextField">Answer of Questionn #1</label>
+                <input type="text" class="form-control" id="a1"
+                placeholder="Write your answer" name="a1" value="" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #2</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #2" name="q2" value="<%= survey.q2 %>" required>
+                placeholder="Questionn #2" name="q2" value="<%= survey.q2 %>" required readonly>
+              </div>
+              <div class="form-group">
+                <label for="NameTextField">Answer of Questionn #2</label>
+                <input type="text" class="form-control" id="a2"
+                placeholder="Write your answer" name="a2" value="" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #3</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #3" name="q3"value="<%= survey.q3 %>" required>
+                placeholder="Questionn #3" name="q3"value="<%= survey.q3 %>" required readonly>
+              </div>
+              <div class="form-group">
+                <label for="NameTextField">Answer of Questionn #3</label>
+                <input type="text" class="form-control" id="a3"
+                placeholder="Write your answer" name="a3" value="" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #4</label>
                 <input type="text" class="form-control" id=""
-                placeholder="Questionn #4" name="q4" value="<%= survey.q4 %>" required>
+                placeholder="Questionn #4" name="q4" value="<%= survey.q4 %>" required readonly>
+              </div>
+              <div class="form-group">
+                <label for="NameTextField">Answer of Questionn #4</label>
+                <input type="text" class="form-control" id="a4"
+                placeholder="Write your answer" name="a4" value="" required>
               </div>
 
               <div class="form-group">
                 <label for="NameTextField">Questionn #5</label>
                 <input type="text" class="form-control" id="NameTextField"
-                placeholder="Questionn #5" name="q5" value="<%= survey.q5 %>" required>
+                placeholder="Questionn #5" name="q5" value="<%= survey.q5 %>" required readonly>
+              </div>
+              <div class="form-group">
+                <label for="NameTextField">Answer of Questionn #5</label>
+                <input type="text" class="form-control" id="a5"
+                placeholder="Write your answer" name="a5" value="" required>
               </div>
 
               <button class="btn btn-primary " type="submit">

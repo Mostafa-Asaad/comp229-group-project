@@ -22,8 +22,8 @@ let saraSurveyModel = mongoose.Schema({
 */
 let surveyModel = mongoose.Schema({
     title: String,
-    startdate: Date,
-    enddate: Date,
+    startdate: String,
+    enddate: String,
     q1: String,
     q2: String,
     q3: String,
