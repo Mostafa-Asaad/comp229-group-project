@@ -1,9 +1,3 @@
-/*
-File name: index.js
-Name: Sarabun Tohura
-Student no: 300685525
-Date: 2021-06-17
-*/
 
 // create express reference 
 let express = require('express');
@@ -66,8 +60,9 @@ module.exports.displayLoginPage = (req, res, next) => {
 }
 
 //When user will hit Submit of login page, this will be invoked
-/*
+
 module.exports.processLoginPage = (req, res, next) => {
+    console.log("inside processLoginPage");
     passport.authenticate('local',
     (err,user,info) => {
         // server error
@@ -85,12 +80,12 @@ module.exports.processLoginPage = (req, res, next) => {
             if(err){
                 return next(err);
             }
-            return res.redirect('/contact-list');
+            return res.redirect('/survey-list');
         });
     })(req,res,next);
     
 }
-*/
+
 module.exports.displayRegisterPage = (req, res, next) => {
     if(!req.user){
         res.render('auth/register',
@@ -106,7 +101,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
     }
 }
 
-/*
+
 module.exports.processRegisterPage = (req, res, next) => {
     let newUser =  new User({
         username: req.body.username,
@@ -135,13 +130,13 @@ module.exports.processRegisterPage = (req, res, next) => {
         else
         {
             return passport.authenticate('local')(req,res,() =>{
-                res.redirect('/contact-list')
+                res.redirect('/survey-list')
 
             });
         }
     });
 }
-*/
+
 
 module.exports.performLogout = (req, res, next) => {
     req.logout();

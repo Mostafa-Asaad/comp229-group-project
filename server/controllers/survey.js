@@ -24,8 +24,8 @@ module.exports.displaySurveyList = (req, res, next) => {
         {
             res.render('survey/list', 
             {title: 'Surveys', 
-            SurveyList: surveyList
-            //,displayName: req.user ? req.user.displayName:''
+            SurveyList: surveyList,
+            displayName: req.user ? req.user.displayName:''
            });      
         }
     });
@@ -75,8 +75,8 @@ module.exports.displayEditPage = (req, res, next) => {
             //show the edit view
             res.render('survey/edit', 
             {title: 'Edit Survey', 
-            survey: surveyToEdit
-            //,displayName: req.user ? req.user.displayName:''
+            survey: surveyToEdit,
+            displayName: req.user ? req.user.displayName:''
            })
         }
     });
@@ -143,8 +143,8 @@ module.exports.displayViewPage = (req, res, next) => {
             //show the view page
             res.render('survey/view', 
             {title: 'Submit Survey', 
-            survey: surveyToSubmit
-            //,displayName: req.user ? req.user.displayName:''
+            survey: surveyToSubmit,
+            displayName: req.user ? req.user.displayName:''
            })
         }
     });

@@ -40,30 +40,34 @@
               <% } %>
   
   
-                  <% if (title == "Surveys"){ %>        
-                      <li class="nav-item active">
-                        <a class="nav-link" href="/survey-list" style="background-color: rgb(238, 232, 198);"><i class="fas fa-mobile-alt"></i> Active Survey </a>
-                      </li>
-                  <% } else  { %>
-                      <li class="nav-item">        
-                        <a class="nav-link" href="/survey-list" style="color: rgb(253, 253, 251);"><i class="fas fa-mobile-alt"></i> Active Survey </a>
-                      </li>
-                  <% } %>
-                    
-                  <% if (title == "Login"){ %>        
+              <% if (title == "Surveys"){ %>        
+                  <li class="nav-item active">
+                      <a class="nav-link" href="/survey-list" style="background-color: rgb(238, 232, 198);"><i class="fas fa-mobile-alt"></i> Active Survey </a>
+                  </li>
+              <% } else  { %>
+                  <li class="nav-item">        
+                    <a class="nav-link" href="/survey-list" style="color: rgb(253, 253, 251);"><i class="fas fa-mobile-alt"></i> Active Survey </a>
+                  </li>
+              <% } %>
+              
+              <!-- 
+              <% if (title == "Login"){ %>        
                     <li class="nav-item active">
                       <a class="nav-link" href="/login" style="background-color: rgb(238, 232, 198);">
                         <i class="fas fa-lg fa-sign-in-alt"></i> Login </a>
                     </li>
-                  <% } else  { %>
-                    <li class="nav-item">        
+              <% } else  { %>
+                <li class="nav-item">        
                       <a class="nav-link" href="/login" style="color: rgb(253, 253, 251);">
                         <i class="fas fa-lg fa-sign-in-alt"></i> Login </a>
-                    </li>
-                  <% } %>
+                </li>
+              <% } %>
+
+              -->
+              
                   
                   
-                 <!-- 
+                 
                   <% if(typeof displayName=='string' && displayName) {%>
                       <li class="navbar-text">
                           <i class="fas fa-lg fa-user" style="color: rgb(253, 253, 251);">Welcome, <%= displayName %></i>
@@ -85,7 +89,7 @@
                             <i class="fas fa-lg fa-sign-in-alt"></i> Login </a>
                         </li>
                       <% } %>
-                    -->
+                    
                       <!-- 
   <li class="nav-item">        
                         <a class="nav-link" href="/login" style="color: rgb(253, 253, 251);">

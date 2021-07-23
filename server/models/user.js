@@ -1,10 +1,3 @@
-/*
-Model Definition of user collection
-File name: contact.js
-Name: Sarabun Tohura
-Student no: 300685525
-Date: 2021-06-17
-*/
 
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');

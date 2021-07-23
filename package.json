@@ -39,14 +39,14 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sarabuntohura/comp229-group-project-full.git"
+    "url": "git+https://github.com/sarabuntohura/comp229-group-project.git"
   },
   "author": "Sarabun Tohura",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sarabuntohura/comp229-group-project-full.git/issues"
+    "url": "https://github.com/sarabuntohura/comp229-group-project.git/issues"
   },
-  "homepage": "https://github.com/sarabuntohura/comp229-group-project-full.git#readme",
+  "homepage": "https://github.com/sarabuntohura/comp229-group-project.git#readme",
   "keywords": [
     "group6",
     "survey"
