@@ -18,15 +18,17 @@
             <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
                 <!-- Header Row-->
                 <tr class="d-flex">
-                    <% if(typeof displayName=='string' && displayName) {%>
-                        <th class="text-center col-5">Survey Title</th>
+               <% if(typeof displayName=='string' && displayName) {%>
+                        <th class="text-center col-3">Survey Title</th>
+                        <th class="text-center col-2">Survey Creator</th>
                         <th class="text-center col-2">Start Date</th>
                         <th class="text-center col-2">End Date</th>                    
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
                     <% } else {%>
-                        <th class="text-center col-6">Survey Title</th>
+                        <th class="text-center col-4">Survey Title</th>
+                        <th class="text-center col-2">Survey Creator</th>
                         <th class="text-center col-3">Start Date</th>
                         <th class="text-center col-3">End Date</th>
                     <% } %>                  
@@ -38,7 +40,8 @@
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
                     <tr class="d-flex">
                         <% if(typeof displayName=='string' && displayName) {%>
-                            <td class="text-center col-5"><%= SurveyList[count].title %></td>
+                            <td class="text-center col-3"><%= SurveyList[count].title %></td>
+                            <td class="text-center col-2" id="usernameid"><%= SurveyList[count].username %></td>
                             <td class="text-center col-2"><%= SurveyList[count].startdate %></td>
                             <td class="text-center col-2"><%= SurveyList[count].enddate %></td>                        
                             <td class="text-center col-1">
@@ -54,7 +57,8 @@
                                 <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
                         <% } else {%>
-                            <td class="text-center col-6"><%= SurveyList[count].title %></td>
+                            <td class="text-center col-4"><%= SurveyList[count].title %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].username %></td>
                             <td class="text-center col-3"><%= SurveyList[count].startdate %></td>
                             <td class="text-center col-3"><%= SurveyList[count].enddate %></td>                                                                            
                         <% } %>
@@ -63,6 +67,11 @@
                     </tr>
                 <% } %>
             </table>
+
+
+
+
+
         </div>
     </div>
   </main>

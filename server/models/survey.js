@@ -20,8 +20,11 @@ let saraSurveyModel = mongoose.Schema({
     collection: "sara_survey"
 });
 */
+
+// added username to save the logged-in user name, to identify the creator of the survey.
 let surveyModel = mongoose.Schema({
     title: String,
+    username: String,
     startdate: String,
     enddate: String,
     q1: String,
