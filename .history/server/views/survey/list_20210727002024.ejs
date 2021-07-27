@@ -39,8 +39,8 @@
                     <tr class="d-flex">
                         <% if(typeof displayName=='string' && displayName ) {%>
                             <td class="text-center col-5"><%= SurveyList[count].title%></td>
-                            <td class="text-center col-2"><%= SurveyList[count].startdate %></td>
-                            <td class="text-center col-2"><%= SurveyList[count].enddate %></td>                        
+                            <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
                             <td class="text-center col-1">
                                 <a href="/survey-list/view/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-eye"></i> View</a>

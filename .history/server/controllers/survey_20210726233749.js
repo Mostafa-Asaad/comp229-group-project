@@ -38,12 +38,11 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
-
-    let currentDate = new Date()
+    let dt = new Date()
     let newSurvey = Survey({
         "title": req.body.title,
-        "startdate": req.body.startdate,
-        "enddate": req.body.enddate,
+        "startdate": req.body.startdate + dt.getTimezoneOffset() * 60000,
+        "enddate": Date.parse(req.body.enddate),
         "q1": req.body.q1,
         "q2": req.body.q2,
         "q3": req.body.q3,

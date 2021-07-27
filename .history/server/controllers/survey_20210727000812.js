@@ -42,7 +42,7 @@ module.exports.processAddPage = (req, res, next) => {
     let currentDate = new Date()
     let newSurvey = Survey({
         "title": req.body.title,
-        "startdate": req.body.startdate,
+        "startdate": currentDate,
         "enddate": req.body.enddate,
         "q1": req.body.q1,
         "q2": req.body.q2,

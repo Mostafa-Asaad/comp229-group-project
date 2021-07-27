@@ -13,6 +13,9 @@ let Survey = require('../models/survey');
 // create a reference to the survey submit model
 let SurveySubmit = require('../models/surveysubmit');
 
+// Get current day
+let currentDate = new Date()
+
 module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
         if(err)
@@ -21,8 +24,6 @@ module.exports.displaySurveyList = (req, res, next) => {
         }
         else
         {
-            // Get current day
-            let currentDate = new Date()
             res.render('survey/list', 
             {title: 'Surveys', 
             SurveyList: surveyList,
@@ -38,8 +39,6 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
-
-    let currentDate = new Date()
     let newSurvey = Survey({
         "title": req.body.title,
         "startdate": req.body.startdate,

@@ -53,10 +53,10 @@
                                 <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item')">
                                 <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
-                        <% } else if ( today >= Date.parse(SurveyList[count].startdate) && today <= Date.parse(SurveyList[count].enddate) ) {%>
-                            <td class="text-center col-6"><%= SurveyList[count].title %></td>
-                            <td class="text-center col-3"><%= SurveyList[count].startdate%></td>
-                            <td class="text-center col-3"><%= SurveyList[count].enddate %></td>                                                                            
+                        <% } else if ( today >= SurveyList[count].startdate && today <= SurveyList[count].startdate  ) {%>
+                            <td class="text-center col-6"><%= SurveyList[count].startdate %></td>
+                            <td class="text-center col-3"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
+                            <td class="text-center col-3"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                                                                            
                         <% } %>
 
                             
