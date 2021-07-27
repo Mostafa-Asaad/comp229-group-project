@@ -32,12 +32,13 @@ module.exports.displaySurveyList = (req, res, next) => {
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('survey/add', {title: 'Add Survey'})          
+    res.render('survey/add', {title: 'Add Survey', displayName: req.user ? req.user.displayName:''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "title": req.body.title,
+        "username": req.body.username,
         "startdate": req.body.startdate,
         "enddate": req.body.enddate,
         "q1": req.body.q1,
