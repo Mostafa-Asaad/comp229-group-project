@@ -1,3 +1,23 @@
+<!-- 
+ File Name : add.ejs
+ COMP228 - Web Application Developmnet
+ Summer 2021 Group 6
+ Mighty Bunch
+
+ Developers: 
+ Sarabun Tohura - 300685525
+ Yerim Cho - 301143325
+ Mohammed Husain - 301149144
+ Mostafa Asaad - 301173762
+ Chaehyun Lee - 301084271
+ Viktoriia Romaniuk - 301079072
+
+ Web App Name : Migthy Survey
+ Description : Users can create new survey. 
+ There are two types of surveys, True or False / Scale.
+ Only logged-in users can answer the survey,
+ and only the creator of survey can edit / delte the survey. 
+-->
 <%- include ../partials/header.ejs %>
 
 <%- include ../partials/main_nav.ejs %>
@@ -23,6 +43,7 @@
                 <label class="form-check-label" for="inlineRadio2">Scale</label>
               </div>
 
+              <!-- setting start date / end date -->
               <script>
                 $("date").on("change", function() {
                     this.setAttribute(
@@ -32,6 +53,7 @@
                     )
                 }).trigger("change")
               </script>
+
               <!--placeholder="Survey start date"-->
               <% if(typeof displayName=='string' && displayName) {%>
               <div class="form-group">
@@ -40,6 +62,7 @@
                 placeholder="<%= displayName %>" name="username" value="<%= displayName %>" required readonly>
               </div>
               <% } %>
+
               <!--placeholder="Survey start date"-->  
               <div class="form-group col-md-3">
                 <label class="h6" for="">Survey Start Date</label>

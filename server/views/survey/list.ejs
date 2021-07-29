@@ -1,4 +1,22 @@
+<!-- 
+ COMP228 - Web Application Developmnet
+ Summer 2021 Group 6
+ Mighty Bunch
 
+ Developers: 
+ Sarabun Tohura - 300685525
+ Yerim Cho - 301143325
+ Mohammed Husain - 301149144
+ Mostafa Asaad - 301173762
+ Chaehyun Lee - 301084271
+ Viktoriia Romaniuk - 301079072
+
+ Web App Name : Migthy Survey
+ Description : Users can create new survey. 
+ There are two types of surveys, True or False / Scale.
+ Only logged-in users can answer the survey,
+ and only the creator of survey can edit / delte the survey. 
+-->
 <%- include ../partials/header.ejs %>
 
 <%- include ../partials/main_nav.ejs %>
@@ -7,51 +25,103 @@
   <main class="container" style="background-color: cornsilk;">
     <div class="row">
         <div class="offset-md-1 col-md-11">
+        <h1><%= title %></h1>
             <% if(typeof displayName=='string' && displayName) {%>
-            <h1><%= title %></h1>
                 <a href="/survey-list/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add new survey</a>
             <% } %>
             
+            <br>
+
+            <!-- Show message that only login users can access the survey -->
+
+            <% if(typeof displayName=='string' && displayName) {%>
+            <p></p>
+            <% } else { %> <h3>Active Survey List</h3>
+            <p> You have to login to access the survey! </p> <%} %>
+
             <br><br>
             <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
                 <!-- Header Row-->
                 <tr class="d-flex">
                <% if(typeof displayName=='string' && displayName) {%>
-                        <th class="text-center col-3">Survey Title</th>
+                        <th class="text-center col-2">Survey Title</th>
                         <th class="text-center col-2">Survey Creator</th>
+                        <th class="text-center col-2">Survey Type</th>
                         <th class="text-center col-2">Start Date</th>
                         <th class="text-center col-2">End Date</th>                    
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
                     <% } else {%>
-                        <th class="text-center col-6">Survey Title</th>
-                        <th class="text-center col-2">Survey Type</th>
-                        <th class="text-center col-2">Start Date</th>
-                        <th class="text-center col-2">End Date</th>
-                    <% } %>                  
-                        
+                        <th class="text-center col-12">Survey Title</th>
+                        <th class="text-center col-6">Survey Creator</th>
+                        <th class="text-center col-6">Survey Type</th>
+                        <th class="text-center col-6">Start Date</th>
+                        <th class="text-center col-6">End Date</th>
+                    <% } %>                              
                 </tr>
 
                 <!-- Repeatable Template Row -->
 
+                <!-- Only login user can access the edit / delete page. 
+                And answering to survey will only be available between survey startdate / enddate -->
+
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
+                 <% if(typeof displayName=='string' && displayName ) {%>
+                   <% if ( today >= SurveyList[count].startdate && today <= SurveyList[count].enddate) {%>
                     <tr class="d-flex" style='cursor: pointer; cursor: hand;' onclick="window.location='/survey-list/survey/<%= SurveyList[count]._id %>';">
-                        <% if(typeof displayName=='string' && displayName ) {%>
-                            <td class="text-center col-4"><%= SurveyList[count].title%></td>
+                            <td class="text-center col-2"><%= SurveyList[count].title%></td>
+                            <td class="text-center col-2" value="<%= SurveyList[count].username %>"><%= SurveyList[count].username %></td>
                             <td class="text-center col-2"><%= SurveyList[count].type%></td>
                             <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
                             <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
+                            <% if(SurveyList[count].username == displayName) {%>
                             <td class="text-center col-1">
                                 <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit</a>
                             </td>
+                            <% } else {%>
+                            <td class="text-center col-1">
+                            </td>
+                            <% } %>
+                            <% if(SurveyList[count].username == displayName) {%> 
                             <td class="text-center col-1">
                                 <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item')">
                                 <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
+                            <% } else {%>
+                            <td class="text-center col-1">
+                            </td>
+                            <% } %>
+                            <% } else {%>
+                            <tr class="d-flex">
+                            <td class="text-center col-2"><%= SurveyList[count].title%></td>
+                            <td class="text-center col-2" value="<%= SurveyList[count].username %>"><%= SurveyList[count].username %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].type%></td>
+                            <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
+                            <% if(SurveyList[count].username == displayName) {%>
+                            <td class="text-center col-1">
+                                <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
+                                <i class="fas fa-pencil-alt"></i> Edit</a>
+                            </td>
+                            <% } else {%>
+                            <td class="text-center col-1">
+                            </td>
+                            <% } %>
+                            <% if(SurveyList[count].username == displayName) {%> 
+                            <td class="text-center col-1">
+                                <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item')">
+                                <i class="fas fa-trash-alt"></i> Delete</a>
+                            </td>
+                            <% } else {%>
+                            <td class="text-center col-1">
+                            </td>
+                            <% } %>
+                            <% } %>
                         <% } else if ( today >= SurveyList[count].startdate && today <= SurveyList[count].enddate) {%>
-                            <td class="text-center col-6"><%= SurveyList[count].title %></td>
+                            <td class="text-center col-4"><%= SurveyList[count].title %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].username %></td>
                             <td class="text-center col-2"><%= SurveyList[count].type%></td>
                             <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
                             <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                                                                            
@@ -61,11 +131,6 @@
                     </tr>
                 <% } %>
             </table>
-
-
-
-
-
         </div>
     </div>
   </main>
