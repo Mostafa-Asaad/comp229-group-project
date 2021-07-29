@@ -1,0 +1,93 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Content for the Add page -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1>New Survey Questions</h1>
+            <form class="form" method="POST">
+              <div class="form-group">
+                <label class="h5" for="NameTextField">Please name the new survey. Name must be unique.</label>
+                <input type="text" class="form-control" id="NameTextField"
+                placeholder="Survey Name" name="title" value="" required>
+              </div>
+
+              <h6>Select survey type: 
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                  <button type="button" class="btn btn-outline-primary">True/False</button required>
+                  <button type="button" class="btn btn-outline-primary">Scale</button required>
+                </div>
+              </h6>
+              <script>
+              
+                $("date").on("change", function() {
+                    this.setAttribute(
+                        "data-date",
+                        moment(this.value, "YYYY-MM-DD").local().
+                        .format( this.getAttribute("data-date-format") )
+                    )
+                }).trigger("change")
+              </script>
+              <!--placeholder="Survey start date"-->
+              <div class="form-group col-md-3">
+                <label class="h6" for="">Survey Start Date</label>
+                <input type="date" class="date" id=""
+                placeholder="yyyy-mm-dd" name="startdate" value=""  required data-date="" data-date-format="YYYY-MM-DD" value="2015-08-09">
+              </div>
+
+              <div class="form-group col-md-3">
+                <label class="h6" for="">Survey End Date</label>
+                <input type="date" class="date" id=""
+                placeholder="Survey end date" name="enddate" value=""  required pattern="\d{4}-\d{2}-\d{2}">
+              </div>
+
+              <div class="form-group">
+                <label for="NameTextField">Questionn #1</label>
+                <input type="text" class="form-control" id=""
+                placeholder="Questionn #1" name="q1" value="" required>
+              </div>
+
+              <div class="form-group">
+                <label for="NameTextField">Questionn #2</label>
+                <input type="text" class="form-control" id=""
+                placeholder="Questionn #2" name="q2" value="" required>
+              </div>
+
+              <div class="form-group">
+                <label for="NameTextField">Questionn #3</label>
+                <input type="text" class="form-control" id=""
+                placeholder="Questionn #3" name="q3" value="" required>
+              </div>
+
+              <div class="form-group">
+                <label for="NameTextField">Questionn #4</label>
+                <input type="text" class="form-control" id=""
+                placeholder="Questionn #4" name="q4" value="" required>
+              </div>
+
+              <div class="form-group">
+                <label for="NameTextField">Questionn #5</label>
+                <input type="text" class="form-control" id="NameTextField"
+                placeholder="Questionn #5" name="q5" value="" required>
+              </div>
+
+              <button class="btn btn-primary " type="submit">
+                <i class="fas fa-edit"></i> Submit</button>
+            
+                <a href="/survey-list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel</a>
+            </form>
+                
+
+        </div>
+
+    </div>
+</div>
+
+<br/><br/><br/>
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
