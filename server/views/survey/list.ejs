@@ -2,7 +2,6 @@
 <%- include ../partials/header.ejs %>
 
 <%- include ../partials/main_nav.ejs %>
-  
 
   <!-- Main Content -->
   <main class="container" style="background-color: cornsilk;">
@@ -18,9 +17,9 @@
             <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
                 <!-- Header Row-->
                 <tr class="d-flex">
-                    <% if(typeof displayName=='string' && displayName) {%>
-                        <th class="text-center col-4">Survey Title</th>
-                        <th class="text-center col-2">Survey Type</th>
+               <% if(typeof displayName=='string' && displayName) {%>
+                        <th class="text-center col-3">Survey Title</th>
+                        <th class="text-center col-2">Survey Creator</th>
                         <th class="text-center col-2">Start Date</th>
                         <th class="text-center col-2">End Date</th>                    
                         <th class="text-center col-1"></th>
@@ -62,6 +61,11 @@
                     </tr>
                 <% } %>
             </table>
+
+
+
+
+
         </div>
     </div>
   </main>
