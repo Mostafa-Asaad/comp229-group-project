@@ -13,6 +13,16 @@
                 <input type="text" class="form-control" id="NameTextField"
                 placeholder="Survey Name" name="title" value="" required>
               </div>
+              
+              
+              <% if(typeof displayName=='string' && displayName) {%>
+              <div class="form-group">
+                <label for="CreatorTextField">Survey Creator</label>
+                <input type="text" class="form-control" id="username"
+                placeholder="<%= displayName %>" name="username" value="<%= displayName %>" required readonly>
+              </div>
+              <% } %>
+
               <script>
                 $("input").on("change", function() {
                     this.setAttribute(
@@ -22,14 +32,6 @@
                     )
                 }).trigger("change")
               </script>
-              
-              <% if(typeof displayName=='string' && displayName) {%>
-              <div class="form-group">
-                <label for="CreatorTextField">Survey Creator</label>
-                <input type="text" class="form-control" id="username"
-                placeholder="<%= displayName %>" name="username" value="<%= displayName %>" required readonly>
-              </div>
-              <% } %>
 
               <!--placeholder="Survey start date"-->  
               <div class="form-group col-md-3">
