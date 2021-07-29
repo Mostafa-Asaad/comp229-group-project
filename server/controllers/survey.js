@@ -13,7 +13,6 @@ let Survey = require('../models/survey');
 // create a reference to the survey submit model
 let SurveySubmit = require('../models/surveysubmit');
 
-
 module.exports.displaySurveyList = (req, res, next) => {
     Survey.find((err, surveyList) => {
         if(err)
@@ -22,10 +21,13 @@ module.exports.displaySurveyList = (req, res, next) => {
         }
         else
         {
+            // Get current day
+            let currentDate = new Date()
             res.render('survey/list', 
             {title: 'Surveys', 
             SurveyList: surveyList,
-            displayName: req.user ? req.user.displayName:''
+            displayName: req.user ? req.user.displayName:'',
+            today: currentDate
            });      
         }
     });
@@ -36,8 +38,11 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
+
+    let currentDate = new Date()
     let newSurvey = Survey({
         "title": req.body.title,
+        "type": req.body.surveytype,
         "username": req.body.username,
         "startdate": req.body.startdate,
         "enddate": req.body.enddate,
@@ -142,7 +147,7 @@ module.exports.displayViewPage = (req, res, next) => {
         else
         {
             //show the view page
-            res.render('survey/view', 
+            res.render('survey/survey', 
             {title: 'Submit Survey', 
             survey: surveyToSubmit,
             displayName: req.user ? req.user.displayName:''
@@ -156,15 +161,56 @@ module.exports.processViewPage = (req, res, next) => {
 
     let newSurveySubmit = SurveySubmit({
         "surveyId": id,
-        "q1": req.body.q1,
         "a1": req.body.a1,
-        "q2": req.body.q2,
         "a2": req.body.a2,
-        "q3": req.body.q3,
         "a3": req.body.a3,
-        "q4": req.body.q4,
         "a4": req.body.a4,
-        "q5": req.body.q5,
+        "a5": req.body.a5
+    });
+
+    SurveySubmit.create(newSurveySubmit, (err, SurveySubmit) =>{
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            res.redirect('/survey-list');
+        }
+    });
+}
+
+module.exports.displaySurveyViewPage = (req, res, next) => {
+    let id = req.params.id;
+
+    Survey.findById(id, (err, surveyToSubmit) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //show the view page
+            res.render('survey/survey', 
+            {title: 'Submit Survey', 
+            survey: surveyToSubmit,
+            displayName: req.user ? req.user.displayName:''
+           })
+        }
+    });
+}
+
+module.exports.processSurveyViewPage = (req, res, next) => {
+    let id = req.params.id
+
+    let newSurveySubmit = SurveySubmit({
+        "surveyId": id,
+        "a1": req.body.a1,
+        "a2": req.body.a2,
+        "a3": req.body.a3,
+        "a4": req.body.a4,
         "a5": req.body.a5
     });
 
