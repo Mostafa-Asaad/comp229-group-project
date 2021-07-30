@@ -55,11 +55,11 @@
               </script>
 
               <!--placeholder="Survey start date"-->
-              <% if(typeof displayName=='string' && displayName) {%>
+              <% if(typeof userId=='string' && userId) {%>
               <div class="form-group">
                 <label style="color: white;" for="CreatorTextField">Survey Creator</label>
                 <input type="text" class="form-control" id="username"
-                placeholder="<%= displayName %>" name="username" value="<%= displayName %>" required readonly>
+                placeholder="<%= userId %>" name="username" value="<%= userId %>" required readonly>
               </div>
               <% } %>
 

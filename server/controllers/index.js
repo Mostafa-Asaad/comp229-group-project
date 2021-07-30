@@ -36,17 +36,17 @@ let User = userModel.User;
 
 //Home page rendering with passing different values
 module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', {title: 'Home',displayName:req.user ? req.user.displayName : ''});
+    res.render('index', {title: 'Home',userId:req.user ? req.user.username : ''});
 }
 
 //About page rendering with passing different values
 module.exports.displayGroupPage = (req, res, next) => {
-    res.render('index', { title: 'About Us',displayName:req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'About Us',userId:req.user ? req.user.username : ''});
 }
 
 //Project page rendering with passing different values
 module.exports.displayProjectsPage = (req, res, next) => {
-    res.render('index', { title: 'Projects',displayName:req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'Projects',userId:req.user ? req.user.username : ''});
 }
 
 //Services page rendering with passing different values
@@ -67,7 +67,7 @@ module.exports.displayLoginPage = (req, res, next) => {
         {
             title:"Login",
             messages:req.flash('loginMessage'),
-            displayName:req.user ? req.user.displayName : ''
+            userId:req.user ? req.user.username : ''
         })
     }
     else
@@ -110,7 +110,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
         {
             title:"Register",
             messages:req.flash('registerMessage'),
-            displayName:req.user ? req.user.displayName : ''
+            userId:req.user ? req.user.username : ''
         })
     }
     else
@@ -124,7 +124,7 @@ module.exports.processRegisterPage = (req, res, next) => {
     let newUser =  new User({
         username: req.body.username,
         email: req.body.email,
-        displayName: req.body.displayName
+        //displayName: req.body.displayName
     });
     User.register(newUser,req.body.password,(err) =>{
         if(err)
@@ -142,7 +142,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             {
                 title:'Register',
                 messages:req.flash('registerMessage'),
-                displayName:req.user ? req.user.displayName : ''
+                userId:req.user ? req.user.username : ''
             });
         }
         else

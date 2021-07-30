@@ -43,12 +43,12 @@ let User = mongoose.Schema(
             trim: true,
             required: 'email address is required'
         },
-        displayName:{
-            type: String,
-            default: '',
-            trim: true,
-            required: 'Display name is required'
-        },
+        //displayName:{
+        //    type: String,
+        //    default: '',
+        //    trim: true,
+        //    required: 'Display name is required'
+        //},
         created:{
             type: Date,
             default: Date.now
