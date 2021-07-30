@@ -255,6 +255,13 @@ Mostafa Asaad
   margin-right: auto;
 }
 
+.login-img {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .logintitle {
   margin: 0;
   padding: 0;
