@@ -26,7 +26,7 @@
     <div class ="container-fluid">
     <div class="row">
         <div class="offset-md-1 col-md-11">
-        <h1><%= title %></h1>
+        <h1 style="color: white;"><%= title %></h1>
             <% if(typeof displayName=='string' && displayName) {%>
                 <a href="/survey-list/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add new survey</a>
@@ -38,8 +38,8 @@
 
             <% if(typeof displayName=='string' && displayName) {%>
             <p></p>
-            <% } else { %> <h3>Active Survey List</h3>
-            <p> You have to login to access the survey! </p> <%} %>
+            <% } else { %> <h3 style="color: white;">Active Survey List</h3>
+            <p style="color: white;"> You have to login to access the survey! </p> <%} %>
 
             <br><br>
             <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
