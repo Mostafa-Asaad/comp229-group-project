@@ -41,7 +41,7 @@ module.exports.displayHomePage = (req, res, next) => {
 
 //About page rendering with passing different values
 module.exports.displayGroupPage = (req, res, next) => {
-    res.render('index', { title: 'Group Members',displayName:req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'About Us',displayName:req.user ? req.user.displayName : ''});
 }
 
 //Project page rendering with passing different values

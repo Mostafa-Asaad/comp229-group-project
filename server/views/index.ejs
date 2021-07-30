@@ -24,15 +24,16 @@
   <!-- Main Content -->
   <main class="container" style="background-color: cornsilk;">
     <div class="row">
-      <div class="offset-md-1 col-md-11">
-        <div class="container-fluid py-5" style="background-color: cornsilk;">     
-          <!-- Home Page  --> 
-          <% if (title == "Home"){ %>
-            <h2 class="display-4 fw-bold">Welcome to COMP229 Group 6 Survey Web Application</h2>
-            <h3>TO DO</h3>
-            <!-- Group member page-->
-            <% } else if (title == "Group Members"){ %>
-              <h2 class="display-4 fw-bold">Group Members</h2>
+      <div class="col-md">
+      <!-- Home Page  --> 
+        <% if (title == "Home"){ %>
+          <h3 class="fill fw-bold">Start - Up Surveys with Mighty Bunch and Get Quick Data.</h3>
+          <a class="btn btn1" href="/register" role="button">Sign Up Now</a>
+        <div class="container-fluid py-5">  
+
+           <!--Group member page-->
+            <% } else if (title == "About Us"){ %>
+              <h2 class="display-4 fw-bold">About Us</h2>
               <h3>TO DO</h3>      
               <!--project detail page-->    
             <% } else if (title == "Projects"){%>
@@ -47,7 +48,37 @@
             <% } %>
         </div>
       </div>
+      <div class="col-md">
+        <img src="../Assets/images/home.png" class="img-fluid" alt="home">
+      </div>
     </div>
+
+
+    <div class="container px-4">
+      <div class="row gx-5">
+        <div class="col">
+          <div class="p-4 cl c1">
+            Step 1
+            <h3 class="pt-5">Go To Survey List.</h3> <h1 style="text-align: right"><i class="fas fa-list"></i></h1>
+            <!--<img src="../Assets/images/list.png" class="image" alt="..."> -->
+          </div>
+        </div>
+        <div class="col">
+          <div class="p-4 cl c2">
+            Step 2
+            <h3 class="pt-5"> Fill Up Surveys.</h3><h1 style="text-align: right"><i class="fas fa-user-edit"></i></h1>
+          </div>
+        </div>
+        <div class="col">
+          <div class="p-4 cl c3">
+            Step 3
+            <h3 class="pt-5"> Hurray! Get Results.</h3><h1 style="text-align: right"><i class="fas fa-gift"></i></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </main>
   
 <%- include partials/bottom_nav.ejs %>  
