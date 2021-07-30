@@ -46,7 +46,7 @@ module.exports.displaySurveyList = (req, res, next) => {
             res.render('survey/list', 
             {title: 'Surveys', 
             SurveyList: surveyList,
-            displayName: req.user ? req.user.displayName:'',
+            userId:req.user ? req.user.username : '',
             today: currentDate
            });      
         }
@@ -54,7 +54,7 @@ module.exports.displaySurveyList = (req, res, next) => {
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('survey/add', {title: 'Add Survey', displayName: req.user ? req.user.displayName:''})          
+    res.render('survey/add', {title: 'Add Survey', userId:req.user ? req.user.username : ''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -102,7 +102,7 @@ module.exports.displayEditPage = (req, res, next) => {
             res.render('survey/edit', 
             {title: 'Edit Survey', 
             survey: surveyToEdit,
-            displayName: req.user ? req.user.displayName:''
+            userId:req.user ? req.user.username : ''
            })
         }
     });
@@ -170,7 +170,7 @@ module.exports.displayViewPage = (req, res, next) => {
             res.render('survey/survey', 
             {title: 'Submit Survey', 
             survey: surveyToSubmit,
-            displayName: req.user ? req.user.displayName:''
+            userId:req.user ? req.user.username : ''
            })
         }
     });
@@ -216,7 +216,7 @@ module.exports.displaySurveyViewPage = (req, res, next) => {
             res.render('survey/survey', 
             {title: 'Submit Survey', 
             survey: surveyToSubmit,
-            displayName: req.user ? req.user.displayName:''
+            userId:req.user ? req.user.username : ''
            })
         }
     });

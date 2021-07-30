@@ -27,7 +27,7 @@
     <div class="row">
         <div class="offset-md-1 col-md-11">
         <h1 style="color: white;"><%= title %></h1>
-            <% if(typeof displayName=='string' && displayName) {%>
+            <% if(typeof userId=='string' && userId) {%>
                 <a href="/survey-list/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add new survey</a>
             <% } %>
@@ -36,7 +36,7 @@
 
             <!-- Show message that only login users can access the survey -->
 
-            <% if(typeof displayName=='string' && displayName) {%>
+            <% if(typeof userId=='string' && userId) {%>
             <p></p>
             <% } else { %> <h3 style="color: white;">Active Survey List</h3>
             <p style="color: white;"> You have to login to access the survey! </p> <%} %>
@@ -45,7 +45,7 @@
             <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
                 <!-- Header Row-->
                 <tr class="d-flex">
-               <% if(typeof displayName=='string' && displayName) {%>
+               <% if(typeof userId=='string' && userId) {%>
                         <th class="text-center col-2">Survey Title</th>
                         <th class="text-center col-2">Survey Creator</th>
                         <th class="text-center col-2">Survey Type</th>
@@ -68,7 +68,7 @@
                 And answering to survey will only be available between survey startdate / enddate -->
 
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
-                 <% if(typeof displayName=='string' && displayName ) {%>
+                 <% if(typeof userId=='string' && userId ) {%>
                    <% if ( today >= SurveyList[count].startdate && today <= SurveyList[count].enddate) {%>
                     <tr class="d-flex" style='cursor: pointer; cursor: hand;' onclick="window.location='/survey-list/survey/<%= SurveyList[count]._id %>';">
                             <td class="text-center col-2"><%= SurveyList[count].title%></td>
@@ -76,7 +76,7 @@
                             <td class="text-center col-2"><%= SurveyList[count].type%></td>
                             <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
                             <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
-                            <% if(SurveyList[count].username == displayName) {%>
+                            <% if(SurveyList[count].username == userId) {%>
                             <td class="text-center col-1">
                                 <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit</a>
@@ -85,7 +85,7 @@
                             <td class="text-center col-1">
                             </td>
                             <% } %>
-                            <% if(SurveyList[count].username == displayName) {%> 
+                            <% if(SurveyList[count].username == userId) {%> 
                             <td class="text-center col-1">
                                 <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item')">
                                 <i class="fas fa-trash-alt"></i> Delete</a>
@@ -101,7 +101,7 @@
                             <td class="text-center col-2"><%= SurveyList[count].type%></td>
                             <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
                             <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
-                            <% if(SurveyList[count].username == displayName) {%>
+                            <% if(SurveyList[count].username == userId) {%>
                             <td class="text-center col-1">
                                 <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">
                                 <i class="fas fa-pencil-alt"></i> Edit</a>
@@ -110,7 +110,7 @@
                             <td class="text-center col-1">
                             </td>
                             <% } %>
-                            <% if(SurveyList[count].username == displayName) {%> 
+                            <% if(SurveyList[count].username == userId) {%> 
                             <td class="text-center col-1">
                                 <a href="/survey-list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item')">
                                 <i class="fas fa-trash-alt"></i> Delete</a>
