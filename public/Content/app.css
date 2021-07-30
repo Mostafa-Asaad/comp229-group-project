@@ -229,3 +229,53 @@ Mohammed Husain
   height: auto;
   float: right;
 }
+
+/* Customized CSS 
+Mostafa Asaad
+301173762,
+2021-07-28
+*/
+
+/* style for login page */
+.loginbox {
+  width: 550px;
+  height: 450px;
+  color: #fff;
+  top: 60%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+.loginlogo {
+  width: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logintitle {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  top: -15%;
+}
+
+.navbar-toggler-icon {
+  background-color: rgb(13, 46, 236);
+}
+
+.nav-item-s {
+  margin-left: 60px;
+}
+
+.navbar-text {
+  color: rgb(51, 87, 206);
+  margin-left: 100px;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  margin-right: auto;
+}

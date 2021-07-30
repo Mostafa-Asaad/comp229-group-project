@@ -86,7 +86,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use('/', surveyRouter);
+
 app.use('/', indexRouter);
 //app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);

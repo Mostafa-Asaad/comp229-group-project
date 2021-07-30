@@ -24,46 +24,54 @@
 <%- include ../partials/main_nav.ejs %>
 
 <!-- Content for the Add page -->
-<div class="container" style="background-color: cornsilk;">
+<div class="container">
     <% if(messages.length > 0) {%>
         <div class="alert alert-danger">
             <%= messages %>
         </div>
     <% } %>
-    <div class="row">
-        <div class="offset-md-4 col-md-4">
-            <h1>Please Login</h1>
+    
+    <div class="row justify-content-center">
+      
+    <a href="/"><img style= "margin-top:75px;" class = "loginlogo" src="../../../Assets/images/team_logo.png"/></a>
+    
+    <div class ="col-6"  style= "margin-top:75px;">
+        
+        
+        
+        
+            <p style="font-family: Courier; font-size:200%; text-align:center; color: #1b7ced;" >Please Login</p>
 
             <form method="POST" autocomplete="off">
                 <fieldset class="form-group">
-                    <label for="username">Username: </label>
                     <input type="text" class="form-control"
                     id="username"
                     placeholder="Enter username"
-                    name="username" required autofocus>
+                    name="username" required>
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <label for="password">Password: </label>
-                    <input type="password" class="form-control"
+                    <input type="password" class="form-control" style= "margin-bottom:20px;"
                     id="password"
                     placeholder="Enter password"
                     name="password" required>
-                    or
-                    <a href="/register">Register Here</a>
+
+                    Don't have an account?
+                    <a href="/register">Join Now</a>
                 </fieldset>
                 <br/>
                 <fieldset class="form-group text-right">
                     <button type="submit" class="btn btn-primary">Login</button>
-                    <a href="/">
-                         <input type="button" class="btn btn-warning" value="Cancel">
-                    </a>
+                    <a href="/"><input type="button" class="btn btn-warning" value="Cancel"></a>
+                    
                 </fieldset>
             </form>
-        </div>
-
+        
+        
+    </div>    
     </div>
-</div>
+    </div>
+
 
 <%- include ../partials/bottom_nav.ejs %>  
 
