@@ -43,6 +43,17 @@
                 <label style="color: white;" class="form-check-label" for="inlineRadio2">Scale</label>
               </div>
 
+              <!-- survey creator section to identify the creator of survey-->
+
+              <% if(typeof userId=='string' && userId) {%>
+              <div class="form-group">
+                <label style="color: white;" for="CreatorTextField">Survey Creator</label>
+                <input type="text" class="form-control" id="username"
+                placeholder="<%= userId %>" name="username" value="<%= userId %>" required readonly>
+              </div>
+              <% } %>
+
+
               <!-- setting start date / end date -->
               <script>
                 $("date").on("change", function() {
@@ -54,22 +65,14 @@
                 }).trigger("change")
               </script>
 
-              <!--placeholder="Survey start date"-->
-              <% if(typeof userId=='string' && userId) {%>
-              <div class="form-group">
-                <label style="color: white;" for="CreatorTextField">Survey Creator</label>
-                <input type="text" class="form-control" id="username"
-                placeholder="<%= userId %>" name="username" value="<%= userId %>" required readonly>
-              </div>
-              <% } %>
-
               <!--placeholder="Survey start date"-->  
               <div class="form-group col-md-3">
                 <label style="color: white;" class="h6" for="">Survey Start Date</label>
                 <input type="date" class="date" id=""
                 placeholder="yyyy-mm-dd" name="startdate" value=""  required data-date="">
               </div>
- 
+
+              
               <div class="form-group col-md-3">
                 <label style="color: white;" class="h6" for="">Survey End Date</label>
                 <input type="date" class="date" id=""
