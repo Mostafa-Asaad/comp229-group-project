@@ -33,6 +33,7 @@ let passport = require('passport');
 let userModel = require('../models/user');
 // kind of alias creation
 let User = userModel.User;
+let Survey = require('../models/survey');
 
 //Home page rendering with passing different values
 module.exports.displayHomePage = (req, res, next) => {
@@ -160,3 +161,28 @@ module.exports.performLogout = (req, res, next) => {
     req.logout();
     res.redirect('/');   
 }
+
+//Display 'MyPage'
+
+module.exports.displayMyPagePage = (req, res, next) => {
+    
+    Survey.find((err, surveyList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            // Get current day
+            let currentDate = new Date()
+            res.render('auth/mypage', 
+            {title: 'My Surveys', 
+            SurveyList: surveyList,
+            userId:req.user ? req.user.username : '',
+            today: currentDate
+           });      
+        }
+    });
+}
+
+
