@@ -270,7 +270,7 @@ Mostafa Asaad
 }
 
 .navbar-toggler-icon {
-  background-color: rgb(13, 46, 236);
+  background-color: rgb(44, 85, 218);
 }
 
 .nav-item-s {
@@ -285,4 +285,57 @@ Mostafa Asaad
 .navbar-nav {
   margin-left: auto;
   margin-right: auto;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.popup:hover {
+  position: relative;
+  top: -25px;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 999;
+}
+
+.popup2:hover {
+  position: relative;
+  height: 110%;
+  width: 110%;
+  display: block;
+  z-index: 999;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.newsurvey {
+  animation-name: newsurvey;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes newsurvey {
+  0% {
+    color: #1b7ced;
+    transform: scale(1);
+  }
+  25% {
+    color: #1663be;
+    transform: scale(1.075);
+  }
+  50% {
+    color: #104a8e;
+    transform: scale(1.15);
+  }
+  75% {
+    color: #0096ff;
+    transform: scale(1.075);
+  }
+  100% {
+    color: #0047ab;
+    transform: scale(1);
+  }
 }
