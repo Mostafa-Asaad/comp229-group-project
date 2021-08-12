@@ -24,22 +24,42 @@
   <!-- Main Content -->
 <main class="container" style="background-color: cornsilk;">
     <div class ="container-fluid">
-        <div class="row justify-content-between">
-            <div class="col-6">
-                <h1 style="color: white; margin-top: 80px; margin-bottom: 80px;">Participate in surveys</h1>
+        <div class="row justify-content-center">
+            <div class="col-5 align-self-start">
+                <h1 style="color: white; margin-top: 80px; margin-bottom: 80px;">Available surveys</h1>
             </div>
-            <div class="col-2">
+            <div class="col-4 align-self-end">
                 <% if(typeof userId=='string' && userId ) {%>
-                    <a class="link" href="/survey-list/add/"><i class="fas fa-plus-circle fa-5x newsurvey" style="margin-top: 50px; margin-bottom: 80px;  cursor: pointer; cursor: hand;"></i></a>
+                <div class="card-body" style="margin-top: 50px; margin-bottom: 80px; border-radius: 15px 50px; border: 2px solid #1663be; background-color: transparent;">
+                <div class ="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-1">
+                            <a class="link" href="/survey-list/add/"><i class="fas fa-plus-circle fa-5x newsurvey" style=" cursor: pointer; cursor: hand; margin-right: 50px;"></i></a>
+                        </div>
+                        <div class="col">
+                            <h4 style="color: white; margin-top: 25px; margin-left: 80px;" class="card-title">Create new survey</h4>
+                        </div>
+                    </div>    
+                </div>
+                </div>     
                 <%} else {%>
-                    <a class="link" href="/login/"><i class="fas fa-plus-circle fa-5x newsurvey" style="margin-top: 50px; margin-bottom: 80px;  cursor: pointer; cursor: hand;"></i></a>
+                   <div class="card-body" style="margin-top: 50px; margin-bottom: 80px; border-radius: 15px 50px; border: 2px solid #1663be; background-color: transparent;">
+                <div class ="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-1">
+                            <a class="link" href="/login/"><i class="fas fa-plus-circle fa-5x newsurvey" style=" cursor: pointer; cursor: hand; margin-right: 50px;"></i></a>
+                        </div>
+                        <div class="col">
+                            <h4 style="color: white; margin-top: 25px; margin-left: 80px;" class="card-title">Create new survey</h4>
+                        </div>
+                    </div>    
+                </div>
+                </div>
                 <%}%>  
 
             </div>
         </div>
             <div class="offset-md-1 col-md-11 text-center">
-                <h1 style="color: white; margin-top: 50px; margin-bottom: 50px;"><%= title %></h1>           
-                <div class="container">
                     <div class="row">
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
                     <% if(typeof userId=='string' && userId ) {%>
@@ -87,7 +107,7 @@
                             <% } %>
                         
                     <% } } %>
-                    </div>
+                    
                         </div>
             </div>
         </div>

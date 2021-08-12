@@ -342,7 +342,7 @@ Mostafa Asaad
 
 .welcome {
   animation-name: welcome;
-  animation-duration: 1s;
+  animation-duration: 0.75s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
 }
@@ -351,14 +351,41 @@ Mostafa Asaad
   0% {
     transform: scale(1);
   }
-  25% {
-    transform: scale(1.015);
+  10% {
+    transform: scale(1.02);
   }
-  50% {
-    transform: scale(1.03);
+  15% {
+    transform: scale(1.04);
+  }
+  20% {
+    transform: scale(1.06);
+  }
+  25% {
+    transform: scale(1.08);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1.1);
   }
   75% {
-    transform: scale(1.015);
+    transform: scale(1.08);
+  }
+  80% {
+    transform: scale(1.06);
+  }
+  85% {
+    transform: scale(1.04);
+  }
+  90% {
+    transform: scale(1.02);
   }
   100% {
     transform: scale(1);
