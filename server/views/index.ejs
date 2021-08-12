@@ -28,7 +28,7 @@
       <!-- Home Page  --> 
         <% if (title == "Home"){ %>
           <h3 class="fill fw-bold">Start - Up Surveys with Mighty Bunch and Get Quick Data.</h3>
-          <a class="btn btn1" href="/register" role="button">Sign Up Now</a>
+          <a class="btn btn1" href="/register">Sign Up Now</a>
         <div class="container-fluid py-5">  
 
            <!--Group member page-->
@@ -53,14 +53,13 @@
       </div>
     </div>
 
-    // If you click the div, you are directed to survey list page. 
+    <!-- If you click the div, you are directed to survey list page. -->
     <div class="container px-4">
       <div class="row gx-5">
-        <div class="col" onclick="location.href='/survey-list';">
+        <div style="margin-bottom: 30px; cursor: pointer; cursor: hand;" class="col" onclick="location.href='/survey-list';">
           <div class="p-4 cl c1" >
             Step 1
             <h3 class="pt-5">Go To Survey List.</h3> <h1 style="text-align: right"><i class="fas fa-list"></i></h1>
-            <!--<img src="../Assets/images/list.png" class="image" alt="..."> -->
           </div>
         </div>
 
@@ -69,20 +68,20 @@
         you are directed to login page -->
         
         <% if(typeof userId=='string' && userId) {%>
-        <div class="col" onclick ="location.href='/survey-list';">
+        <div  style="margin-bottom: 30px; cursor: pointer; cursor: hand;" class="col" onclick ="location.href='/survey-list';">
           <div class="p-4 cl c2">
             Step 2
             <h3 class="pt-5"> Fill Up Surveys.</h3><h1 style="text-align: right"><i class="fas fa-user-edit"></i></h1>
           </div>
         </div>
         <% } else { %>
-        <div class="col" onclick ="location.href='/login';">
+        <div  style="margin-bottom: 30px; cursor: pointer; cursor: hand;" class="col" onclick ="location.href='/login';">
           <div class="p-4 cl c2">
             Step 2
             <h3 class="pt-5"> Fill Up Surveys.</h3><h1 style="text-align: right"><i class="fas fa-user-edit"></i></h1>
           </div>
         </div> <% } %>
-        <div class="col">
+        <div  style="margin-bottom: 30px; cursor: pointer; cursor: hand;" class="col">
           <div class="p-4 cl c3">
             Step 3
             <h3 class="pt-5"> Hurray! Get Results.</h3><h1 style="text-align: right"><i class="fas fa-gift"></i></h1>
