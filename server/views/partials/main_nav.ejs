@@ -76,6 +76,7 @@
                   
                  
                   <% if(typeof userId=='string' && userId) {%>
+<<<<<<< HEAD
                       <li class="navbar-text">
                           <i style="color: #1b7ced;" class="fas fa-lg fa-user">Welcome, <%= userId %></i>
                             <li class="nav-item-s">        
@@ -83,6 +84,15 @@
                                  Logout <i class="fas fa-lg fa-sign-out-alt"></i>
                               </a>                      
                             </li>
+=======
+                      <li class="nav-item-s">
+                        <a class="nav-link" href="/mypage"><i class="fas fa-lg fa-user">Welcome, <%= userId %></i></a>
+                      </li>
+                      <li class="nav-item-s">        
+                        <a class="nav-link" href="/logout">
+                          Logout <i class="fas fa-lg fa-sign-out-alt"></i>
+                        </a>                      
+>>>>>>> 2e16b304eaf7567162c3edc7ce27c701a1a3dc8c
                       </li>
                   <% } else {%>
                       <% if (title == "Login"){ %>        

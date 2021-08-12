@@ -48,5 +48,7 @@ router.post('/register', indexController.processRegisterPage);
 /* GET to perform UserLogout */
 router.get('/logout', indexController.performLogout);
 
+/* GET Route for displaying the MyPage page */
+router.get('/mypage', indexController.displayMyPagePage);
 
 module.exports = router;

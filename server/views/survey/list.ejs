@@ -29,6 +29,7 @@
                 <h1 style="color: white; margin-top: 50px; margin-bottom: 50px;"><%= title %></h1>
                 
             
+<<<<<<< HEAD
                 <div class="container">
                     <div class="row">
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
@@ -66,6 +67,54 @@
                     </div>
                         </div>
             </div>
+=======
+            <br>
+
+            <!-- Show message that only login users can access the survey -->
+
+            <% if(typeof userId=='string' && userId) {%>
+            <p></p>
+            <% } else { %> <h3 style="color: white;">Active Survey List</h3>
+            <p style="color: white;"> You have to login to access the survey! </p> <%} %>
+
+            <br><br>
+            <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
+                <!-- Header Row-->
+                <tr class="d-flex">
+                        <th class="text-center col-2">Survey Title</th>
+                        <th class="text-center col-2">Survey Creator</th>
+                        <th class="text-center col-2">Survey Type</th>
+                        <th class="text-center col-2">Start Date</th>
+                        <th class="text-center col-2">End Date</th>                  
+                </tr>
+
+                <!-- Repeatable Template Row -->
+
+                <!-- Only login user can access the edit / delete page. 
+                And answering to survey will only be available between survey startdate / enddate -->
+
+                <% for(let count = 0; count < SurveyList.length; count++) { %>
+                 <% if(typeof userId=='string' && userId ) {%>
+                   <% if ( today >= SurveyList[count].startdate && today <= SurveyList[count].enddate) {%>
+                    <tr class="d-flex" style='cursor: pointer; cursor: hand;' onclick="window.location='/survey-list/survey/<%= SurveyList[count]._id %>';">
+                            <td class="text-center col-2"><%= SurveyList[count].title%></td>
+                            <td class="text-center col-2" value="<%= SurveyList[count].username %>"><%= SurveyList[count].username %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].type%></td>
+                            <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
+                            <% } else {%>
+                            <tr class="d-flex">
+                            <td class="text-center col-2"><%= SurveyList[count].title%></td>
+                            <td class="text-center col-2" value="<%= SurveyList[count].username %>"><%= SurveyList[count].username %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].type%></td>
+                            <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
+                            <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
+                        <% } %> 
+                    </tr>
+                 <% } %>
+                 <% } %>
+            </table>
+>>>>>>> 2e16b304eaf7567162c3edc7ce27c701a1a3dc8c
         </div>
     </div>
 </main>
