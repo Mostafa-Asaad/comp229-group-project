@@ -24,12 +24,21 @@
   <!-- Main Content -->
 <main class="container" style="background-color: cornsilk;">
     <div class ="container-fluid">
-        <div class="row">
+        <div class="row justify-content-between">
+            <div class="col-6">
+                <h1 style="color: white; margin-top: 80px; margin-bottom: 80px;">Participate in surveys</h1>
+            </div>
+            <div class="col-2">
+                <% if(typeof userId=='string' && userId ) {%>
+                    <a class="link" href="/survey-list/add/"><i class="fas fa-plus-circle fa-5x newsurvey" style="margin-top: 50px; margin-bottom: 80px;  cursor: pointer; cursor: hand;"></i></a>
+                <%} else {%>
+                    <a class="link" href="/login/"><i class="fas fa-plus-circle fa-5x newsurvey" style="margin-top: 50px; margin-bottom: 80px;  cursor: pointer; cursor: hand;"></i></a>
+                <%}%>  
+
+            </div>
+        </div>
             <div class="offset-md-1 col-md-11 text-center">
-                <h1 style="color: white; margin-top: 50px; margin-bottom: 50px;"><%= title %></h1>
-                
-            
-<<<<<<< HEAD
+                <h1 style="color: white; margin-top: 50px; margin-bottom: 50px;"><%= title %></h1>           
                 <div class="container">
                     <div class="row">
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
@@ -39,7 +48,14 @@
                                     <div class="card text-center popup" style="background-color: transparent; margin-bottom: 75px;" class="d-flex">
                                         <div class="card-header  text-muted" style="color:white; font-family: Courier; font-size:120%;"></div>
                                         <div class="card-body" style="border-radius: 15px 50px; background-color: #1663be;   cursor: pointer; cursor: hand;" onclick="window.location='/survey-list/survey/<%= SurveyList[count]._id %>';">
-                                            <h4 style="color: white;" class="card-title"><%= SurveyList[count].title %></h4>
+                                            <div class="row">
+                                            <div class="col-4">
+                                            <img src="../Assets/images/surveyicon.png" class="login-img d-none d-lg-block" class="img-fluid">
+                                            </div>
+                                            <div class="col">
+                                            <h4 style="color: white; margin-top: 25px; margin-right: 40px;" class="card-title"><%= SurveyList[count].title %></h4>
+                                            </div>
+                                            </div>
                                         </div>
                                         <div class="card-footer text-muted"  style=" color:white; font-family: Courier;  font-size:120%;">
                                         Available until: <%= SurveyList[count].enddate.toISOString().split('T')[0] %>
@@ -53,8 +69,15 @@
                                     <div class="card text-center popup" style="background-color: transparent; margin-bottom: 75px;" class="d-flex">
                                         <div class="card-header  text-muted" style=" color:white; font-family: Courier; font-size:120%;"></div>
                                         <div class="card-body" style="border-radius: 15px 50px; background-color: #1663be; cursor: pointer; cursor: hand;"  onclick="window.location='/login/';">
-                                            <h4 style="color: white;" class="card-title"><%= SurveyList[count].title %></h4>
+                                            <div class="row">
+                                            <div class="col-4">
+                                            <img src="../Assets/images/surveyicon.png" class="login-img d-none d-lg-block" class="img-fluid">
+                                            </div>
+                                            <div class="col">
+                                            <h4 style="color: white; margin-bottom: 15px;" class="card-title"><%= SurveyList[count].title %></h4>
                                             <p  class="card-text">Login to participate in this survey</p>
+                                            </div>
+                                            </div>
                                         </div>
                                         <div class="card-footer text-muted"  style=" color:white; font-family: Courier;  font-size:120%;">
                                         Available until: <%= SurveyList[count].enddate.toISOString().split('T')[0] %>
@@ -67,54 +90,6 @@
                     </div>
                         </div>
             </div>
-=======
-            <br>
-
-            <!-- Show message that only login users can access the survey -->
-
-            <% if(typeof userId=='string' && userId) {%>
-            <p></p>
-            <% } else { %> <h3 style="color: white;">Active Survey List</h3>
-            <p style="color: white;"> You have to login to access the survey! </p> <%} %>
-
-            <br><br>
-            <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
-                <!-- Header Row-->
-                <tr class="d-flex">
-                        <th class="text-center col-2">Survey Title</th>
-                        <th class="text-center col-2">Survey Creator</th>
-                        <th class="text-center col-2">Survey Type</th>
-                        <th class="text-center col-2">Start Date</th>
-                        <th class="text-center col-2">End Date</th>                  
-                </tr>
-
-                <!-- Repeatable Template Row -->
-
-                <!-- Only login user can access the edit / delete page. 
-                And answering to survey will only be available between survey startdate / enddate -->
-
-                <% for(let count = 0; count < SurveyList.length; count++) { %>
-                 <% if(typeof userId=='string' && userId ) {%>
-                   <% if ( today >= SurveyList[count].startdate && today <= SurveyList[count].enddate) {%>
-                    <tr class="d-flex" style='cursor: pointer; cursor: hand;' onclick="window.location='/survey-list/survey/<%= SurveyList[count]._id %>';">
-                            <td class="text-center col-2"><%= SurveyList[count].title%></td>
-                            <td class="text-center col-2" value="<%= SurveyList[count].username %>"><%= SurveyList[count].username %></td>
-                            <td class="text-center col-2"><%= SurveyList[count].type%></td>
-                            <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
-                            <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
-                            <% } else {%>
-                            <tr class="d-flex">
-                            <td class="text-center col-2"><%= SurveyList[count].title%></td>
-                            <td class="text-center col-2" value="<%= SurveyList[count].username %>"><%= SurveyList[count].username %></td>
-                            <td class="text-center col-2"><%= SurveyList[count].type%></td>
-                            <td class="text-center col-2"><%= SurveyList[count].startdate.toISOString().split('T')[0] %></td>
-                            <td class="text-center col-2"><%= SurveyList[count].enddate.toISOString().split('T')[0] %></td>                        
-                        <% } %> 
-                    </tr>
-                 <% } %>
-                 <% } %>
-            </table>
->>>>>>> 2e16b304eaf7567162c3edc7ce27c701a1a3dc8c
         </div>
     </div>
 </main>

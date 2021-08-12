@@ -312,7 +312,7 @@ Mostafa Asaad
 
 .newsurvey {
   animation-name: newsurvey;
-  animation-duration: 0.5s;
+  animation-duration: 0.75s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
 }
@@ -324,18 +324,43 @@ Mostafa Asaad
   }
   25% {
     color: #1663be;
-    transform: scale(1.075);
+    transform: scale(1.025);
   }
   50% {
     color: #104a8e;
-    transform: scale(1.15);
+    transform: scale(1.05);
   }
   75% {
     color: #0096ff;
-    transform: scale(1.075);
+    transform: scale(1.025);
   }
   100% {
     color: #0047ab;
+    transform: scale(1);
+  }
+}
+
+.welcome {
+  animation-name: welcome;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes welcome {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.015);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  75% {
+    transform: scale(1.015);
+  }
+  100% {
     transform: scale(1);
   }
 }

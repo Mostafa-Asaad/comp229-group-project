@@ -32,43 +32,43 @@
         <!-- <h1><font color="white">Welcome to COMP229 Group 6 Survey Web Application</font></h1> -->
         
         <% if (title == "Home"){ %>        
-          <li class="nav-item-s active">
+          <li class="nav-item-s">
             <a style="color: #1b7ced;" class="nav-link" href="/home"><i class="fas fa-home"></i> Home </a>
           </li>
           <% } else  { %>
           <li class="nav-item-s">        
-            <a class="nav-link" href="/home"><i class="fas fa-home"></i></i> Home </a>
+            <a class="nav-link" style="color: white;" href="/home"><i class="fas fa-home"></i></i> Home </a>
           </li>
           <% } %>
   
           <% if (title == "About Us"){ %>        
-            <li class="nav-item-s active ">
-              <a style="color: #1b7ced;" class="nav-link" href="/group"><i class="fas fa-users"></i></i> About Us </a>
+            <li class="nav-item-s">
+              <a style="color: #1663be;" class="nav-link" href="/group"><i class="fas fa-users"></i></i> About Us </a>
             </li>
             <% } else  { %>
             <li class="nav-item-s">        
-              <a class="nav-link" href="/group"><i class="fas fa-users"></i></i> About Us </a>
+              <a class="nav-link" style="color: white;" href="/group"><i class="fas fa-users"></i></i> About Us </a>
             </li>
             <% } %>
   
             <% if (title == "Projects"){ %>        
-              <li class="nav-item-s active ">
-                <a style="color: #1b7ced;" class="nav-link" href="/projects"><i class="fas fa-info"></i> Project Info </a>
+              <li class="nav-item-s">
+                <a style="color: #1663be;" class="nav-link" href="/projects"><i class="fas fa-info"></i> Project Info </a>
               </li>
               <% } else  { %>
               <li class="nav-item-s">        
-                <a class="nav-link" href="/projects"><i class="fas fa-info"></i> Project Info </a>
+                <a class="nav-link" style="color: white;" href="/projects"><i class="fas fa-info"></i> Project Info </a>
               </li>
               <% } %>
   
   
               <% if (title == "Surveys"){ %>        
-                  <li class="nav-item-s active">
-                      <a style="color: #1b7ced;" class="nav-link" href="/survey-list" style=><i class="fas fa-poll"></i> Surveys </a>
+                  <li class="nav-item-s">
+                      <a style="color: #1663be;" class="nav-link" href="/survey-list" style=><i class="fas fa-poll"></i> Surveys </a>
                   </li>
               <% } else  { %>
                   <li class="nav-item-s">        
-                    <a class="nav-link" href="/survey-list"><i class="fas fa-poll"></i> Surveys </a>
+                    <a class="nav-link" style="color: white;" href="/survey-list"><i class="fas fa-poll"></i> Surveys </a>
                   </li>
               <% } %>
                         
@@ -76,33 +76,31 @@
                   
                  
                   <% if(typeof userId=='string' && userId) {%>
-<<<<<<< HEAD
-                      <li class="navbar-text">
-                          <i style="color: #1b7ced;" class="fas fa-lg fa-user">Welcome, <%= userId %></i>
-                            <li class="nav-item-s">        
-                              <a class="nav-link" href="/logout">
-                                 Logout <i class="fas fa-lg fa-sign-out-alt"></i>
-                              </a>                      
-                            </li>
-=======
+                  <% if (title == "My Surveys"){ %>
                       <li class="nav-item-s">
-                        <a class="nav-link" href="/mypage"><i class="fas fa-lg fa-user">Welcome, <%= userId %></i></a>
+                        <a class="nav-link" style="color: #1663be;" href="/mypage"><i class="fas fa-user"></i> My Surveys </a>
+                      </li>
+                    <% } else  { %>
+                    <li class="nav-item-s">
+                        <a class="nav-link" style="color: white;" href="/mypage"><i class="fas fa-user"></i> My Surveys </a>
+                      </li>
+                    <% }%>
+                      <li class="nav-item-s">
+                        <a class="nav-link welcome" style="background-color: #1663be; border-radius:15px;"> Welcome, <%= userId %></a>
                       </li>
                       <li class="nav-item-s">        
-                        <a class="nav-link" href="/logout">
-                          Logout <i class="fas fa-lg fa-sign-out-alt"></i>
-                        </a>                      
->>>>>>> 2e16b304eaf7567162c3edc7ce27c701a1a3dc8c
+                        <a class="nav-link" style="color: red;" href="/logout"> Logout <i class="fas fa-lg fa-sign-out-alt"></i></a>                      
                       </li>
+                      
                   <% } else {%>
                       <% if (title == "Login"){ %>        
-                        <li class="nav-item-s active">
+                        <li class="nav-item-s">
                           <a style="color: #1b7ced;" class="nav-link" href="/login">
                              Login <i class="fas fa-lg fa-sign-in-alt"></i></a>
                         </li>
                       <% } else  { %>
                         <li class="nav-item-s">        
-                          <a class="nav-link" href="/login">
+                          <a class="nav-link" style="color: white;" href="/login">
                           Login <i class="fas fa-lg fa-sign-in-alt"></i></a>
                         </li>
                       <% } %>
