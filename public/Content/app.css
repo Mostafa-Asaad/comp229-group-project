@@ -302,8 +302,7 @@ Mostafa Asaad
 
 .popup2:hover {
   position: relative;
-  height: 110%;
-  width: 110%;
+  transform: scale(1.2);
   display: block;
   z-index: 999;
   cursor: pointer;
