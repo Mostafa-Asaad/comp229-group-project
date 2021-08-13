@@ -42,7 +42,7 @@ module.exports.displayHomePage = (req, res, next) => {
 
 //About page rendering with passing different values
 module.exports.displayGroupPage = (req, res, next) => {
-    res.render('index', { title: 'About Us',userId:req.user ? req.user.username : ''});
+    res.render('group', { title: 'About Us',userId:req.user ? req.user.username : ''});
 }
 
 //Project page rendering with passing different values
