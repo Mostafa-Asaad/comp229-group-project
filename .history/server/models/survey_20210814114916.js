@@ -20,17 +20,5 @@
 const { ObjectId } = require('mongodb');
 let mongoose = require('mongoose');
 
-// create a model class for survey document
-let surveyModel = mongoose.Schema({
-    title: String,
-    type: String,   
-    startdate: Date,
-    enddate: Date,
-    question: Array
-},
-{
-    collection: "surveys1"
-});
-
-module.exports = mongoose.model('Survey', surveyModel);
+// create a model class
 

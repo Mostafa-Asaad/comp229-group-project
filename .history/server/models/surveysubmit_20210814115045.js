@@ -1,4 +1,4 @@
-//  File Name : survey.js
+//  File Name : surveysubmit.js
 //  COMP228 - Web Application Developmnet
 //  Summer 2021 Group 6
 //  Mighty Bunch
@@ -20,17 +20,14 @@
 const { ObjectId } = require('mongodb');
 let mongoose = require('mongoose');
 
-// create a model class for survey document
-let surveyModel = mongoose.Schema({
-    title: String,
-    type: String,   
-    startdate: Date,
-    enddate: Date,
-    question: Array
+let surveySubmitModel = mongoose.Schema({
+    surveyId:String,
+    answer: Array 
 },
 {
-    collection: "surveys1"
+    collection: "surveysubmit1"
 });
 
-module.exports = mongoose.model('Survey', surveyModel);
 
+
+module.exports = mongoose.model('SurveySubmit', surveySubmitModel);
