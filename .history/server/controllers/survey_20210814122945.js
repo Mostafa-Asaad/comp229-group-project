@@ -71,7 +71,7 @@ module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "title": req.body.title,
         "type": req.body.surveytype,
-        "username": req.body.username,
+        
         "startdate": req.body.startdate,
         "enddate": req.body.enddate,
         "question": question
