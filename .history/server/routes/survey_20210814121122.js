@@ -65,7 +65,6 @@ router.get('/survey/:id', surveyController.displaySurveyViewPage);
 /* POST Route for submitting survey page - Operation */
 router.post('/survey/:id', surveyController.processSurveyViewPage);
 
-/* GET Route for displaying the Survey Report page */
-router.get('/report/:id', surveyController.displayReportViewPage);
+
 
 module.exports = router;

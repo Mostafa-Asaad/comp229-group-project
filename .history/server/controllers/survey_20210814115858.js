@@ -71,7 +71,6 @@ module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "title": req.body.title,
         "type": req.body.surveytype,
-        "username": req.body.username,
         "startdate": req.body.startdate,
         "enddate": req.body.enddate,
         "question": question
@@ -185,7 +184,7 @@ module.exports.displayViewPage = (req, res, next) => {
         {
             //show the view page
             res.render('survey/survey', 
-            {title: surveyToSubmit.title, 
+            {title: 'Submit Survey', 
             survey: surveyToSubmit,
             userId:req.user ? req.user.username : ''
            })
@@ -195,12 +194,14 @@ module.exports.displayViewPage = (req, res, next) => {
 
 module.exports.processViewPage = (req, res, next) => {
     let id = req.params.id
-    let answer = [];
-    answer.push([req.body.a1, req.body.a2, req.body.a3, req.body.a4, req.body.a5])
 
     let newSurveySubmit = SurveySubmit({
         "surveyId": id,
-        "answer": answer
+        "a1": req.body.a1,
+        "a2": req.body.a2,
+        "a3": req.body.a3,
+        "a4": req.body.a4,
+        "a5": req.body.a5
     });
 
     SurveySubmit.create(newSurveySubmit, (err, SurveySubmit) =>{
@@ -229,7 +230,7 @@ module.exports.displaySurveyViewPage = (req, res, next) => {
         {
             //show the view page
             res.render('survey/survey', 
-            {title: surveyToSubmit.title, 
+            {title: 'Submit Survey', 
             survey: surveyToSubmit,
             userId:req.user ? req.user.username : ''
            })
@@ -240,16 +241,13 @@ module.exports.displaySurveyViewPage = (req, res, next) => {
 module.exports.processSurveyViewPage = (req, res, next) => {
     let id = req.params.id
 
-    let answer = [];
-    answer.push(req.body.a1);
-    answer.push(req.body.a2);
-    answer.push(req.body.a3);
-    answer.push(req.body.a4);
-    answer.push(req.body.a5);
-
     let newSurveySubmit = SurveySubmit({
         "surveyId": id,
-        "answer": answer
+        "a1": req.body.a1,
+        "a2": req.body.a2,
+        "a3": req.body.a3,
+        "a4": req.body.a4,
+        "a5": req.body.a5
     });
 
     SurveySubmit.create(newSurveySubmit, (err, SurveySubmit) =>{
@@ -261,93 +259,6 @@ module.exports.processSurveyViewPage = (req, res, next) => {
         else
         {
             res.redirect('/survey-list');
-        }
-    });
-}
-
-module.exports.displayReportViewPage = (req, res, next) => {
-    
-    let id = req.params.id;
-
-    Survey.findById(id, (err, survey) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //let votes = SurveySubmit.countDocuments({"surveyId" : id});
-            SurveySubmit.find({"surveyId" : id}, (err, docs) => {  
-
-                let trueAnswer = [0,0,0,0,0];
-                let falseAnswer = [0,0,0,0,0];
-                let veryBad = [0,0,0,0,0];
-                let bad = [0,0,0,0,0];
-                let good = [0,0,0,0,0];
-                let veryGood = [0,0,0,0,0];
-                let excellent = [0,0,0,0,0];
-
-                for (j=0; j < docs.length; j++) {
-                    //console.log("docs[" + j + "] = > " + docs[j] );
-                    for ( i=0; i < docs[j].answer.length; i++) {
-                        if ( survey.type == "True/False" ) {
-                            if (docs[j].answer[i] == "true") {
-                                trueAnswer[i]++;
-                            }
-                            else {
-                                falseAnswer[i]++;
-                            }
-                        }
-                        if ( survey.type == "Scale" ) {
-
-                            switch (docs[j].answer[i]) {
-                                case "very bad":
-                                    veryBad[i]++;
-                                    break;
-                                case "bad":
-                                    bad[i]++;
-                                    break;
-                                case "good":
-                                    good[i]++;
-                                    break;
-                                case "very good":
-                                    veryGood[i]++;
-                                    break;
-                                case "excellent":
-                                    excellent[i]++;
-                                    break;
-                                default:
-                                    break;
-                            }
-
-                        }
-                    }
-                }
-                if ( survey.type == "True/False" ) {
-                    res.render('survey/report', 
-                    {
-                        title: survey.title,
-                        survey: survey,
-                        votes: docs.length,
-                        trueAnswer: trueAnswer,
-                        falseAnswer: falseAnswer
-                    });
-                }
-                if ( survey.type == "Scale" ) {
-                    res.render('survey/report', 
-                    {
-                        title: survey.title,
-                        survey: survey,
-                        votes: docs.length,
-                        veryBad: veryBad,
-                        bad: bad,
-                        good: good,
-                        veryGood: veryGood,
-                        excellent: excellent
-                    });
-                }
-            });   
         }
     });
 }
