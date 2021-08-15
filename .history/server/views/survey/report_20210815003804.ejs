@@ -10,13 +10,22 @@
             <h1><%= title %></h1>
                 <a href="/survey-list" class="btn btn-primary" role="button">
                 <i class="fa fa-reply"></i> Back to survey list</a>
+<script>
+  function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById('report_table');
+      var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+      return dl ?
+        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+        XLSX.writeFile(wb, fn || ('Report.' + (type || 'xlsx')));
+}
+</script>
 
                 <a href="#" class="btn btn-primary" role="button" onclick="ExportToExcel('xlsx')">
                 <i class="fas fa-file-excel"></i> Export To Excel</a>
             <!--% } %-->
             
             <br><br>
-            <table id="report_table" class="table table-bordered table-hover border-primary" style="background-color: bisque;">
+            <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
                <tr>
                   <% if ( survey.type == "True/False" ) { %>
                     <th class="text-center col-6">Question</th>
