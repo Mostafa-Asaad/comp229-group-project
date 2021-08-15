@@ -71,7 +71,6 @@ module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "title": req.body.title,
         "type": req.body.surveytype,
-        "username": req.body.username,
         "startdate": req.body.startdate,
         "enddate": req.body.enddate,
         "question": question
@@ -185,7 +184,7 @@ module.exports.displayViewPage = (req, res, next) => {
         {
             //show the view page
             res.render('survey/survey', 
-            {title: surveyToSubmit.title, 
+            {title: 'Submit Survey', 
             survey: surveyToSubmit,
             userId:req.user ? req.user.username : ''
            })
@@ -229,7 +228,7 @@ module.exports.displaySurveyViewPage = (req, res, next) => {
         {
             //show the view page
             res.render('survey/survey', 
-            {title: surveyToSubmit.title, 
+            {title: 'Submit Survey', 
             survey: surveyToSubmit,
             userId:req.user ? req.user.username : ''
            })

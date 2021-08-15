@@ -229,7 +229,7 @@ module.exports.displaySurveyViewPage = (req, res, next) => {
         {
             //show the view page
             res.render('survey/survey', 
-            {title: surveyToSubmit.title, 
+            {title: 'Submit Survey', 
             survey: surveyToSubmit,
             userId:req.user ? req.user.username : ''
            })
