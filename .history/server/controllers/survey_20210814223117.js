@@ -229,7 +229,7 @@ module.exports.displaySurveyViewPage = (req, res, next) => {
         {
             //show the view page
             res.render('survey/survey', 
-            {title: surveyToSubmit.title, 
+            {title: 'Submit Survey', 
             survey: surveyToSubmit,
             userId:req.user ? req.user.username : ''
            })
@@ -331,8 +331,7 @@ module.exports.displayReportViewPage = (req, res, next) => {
                         survey: survey,
                         votes: docs.length,
                         trueAnswer: trueAnswer,
-                        falseAnswer: falseAnswer,
-                        userId:req.user ? req.user.username : ''
+                        falseAnswer: falseAnswer
                     });
                 }
                 if ( survey.type == "Scale" ) {
@@ -345,8 +344,7 @@ module.exports.displayReportViewPage = (req, res, next) => {
                         bad: bad,
                         good: good,
                         veryGood: veryGood,
-                        excellent: excellent,
-                        userId:req.user ? req.user.username : ''
+                        excellent: excellent
                     });
                 }
             });   

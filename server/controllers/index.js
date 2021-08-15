@@ -31,9 +31,13 @@ let passport = require('passport');
 
 // define user model
 let userModel = require('../models/user');
+
+// define survey model
+let Survey = require('../models/survey');
+
 // kind of alias creation
 let User = userModel.User;
-let Survey = require('../models/survey');
+
 
 //Home page rendering with passing different values
 module.exports.displayHomePage = (req, res, next) => {
@@ -47,7 +51,7 @@ module.exports.displayGroupPage = (req, res, next) => {
 
 //Project page rendering with passing different values
 module.exports.displayProjectsPage = (req, res, next) => {
-    res.render('index', { title: 'Projects',userId:req.user ? req.user.username : ''});
+    res.render('projects', { title: 'Projects',userId:req.user ? req.user.username : ''});
 }
 
 //Services page rendering with passing different values

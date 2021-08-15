@@ -20,13 +20,19 @@
 const { ObjectId } = require('mongodb');
 let mongoose = require('mongoose');
 
-// create a model class for submitted survey document
 let surveySubmitModel = mongoose.Schema({
     surveyId:String,
-    answer: Array 
+    a1: String,
+    a2: String,
+    a3: String,
+    a4: String,
+    a5: String
 },
 {
-    collection: "surveysubmit"
+    collection: "surveysubmit1"
 });
 
+
+
 module.exports = mongoose.model('SurveySubmit', surveySubmitModel);
+

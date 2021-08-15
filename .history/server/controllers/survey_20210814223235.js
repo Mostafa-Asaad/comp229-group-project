@@ -331,8 +331,7 @@ module.exports.displayReportViewPage = (req, res, next) => {
                         survey: survey,
                         votes: docs.length,
                         trueAnswer: trueAnswer,
-                        falseAnswer: falseAnswer,
-                        userId:req.user ? req.user.username : ''
+                        falseAnswer: falseAnswer
                     });
                 }
                 if ( survey.type == "Scale" ) {
@@ -345,8 +344,7 @@ module.exports.displayReportViewPage = (req, res, next) => {
                         bad: bad,
                         good: good,
                         veryGood: veryGood,
-                        excellent: excellent,
-                        userId:req.user ? req.user.username : ''
+                        excellent: excellent
                     });
                 }
             });   

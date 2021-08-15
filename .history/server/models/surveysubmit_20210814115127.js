@@ -26,7 +26,9 @@ let surveySubmitModel = mongoose.Schema({
     answer: Array 
 },
 {
-    collection: "surveysubmit"
+    collection: "surveysubmit1"
 });
+
+
 
 module.exports = mongoose.model('SurveySubmit', surveySubmitModel);
