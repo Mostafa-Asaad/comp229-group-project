@@ -7,16 +7,13 @@
     <div class="row">
         <div class="offset-md-1 col-md-10">
             <!--% if(typeof displayName=='string' && displayName) {%-->
-            <h1 style="color: white"><%= title %></h1>
+            <h1><%= title %></h1>
                 <a href="/survey-list" class="btn btn-primary" role="button">
                 <i class="fa fa-reply"></i> Back to survey list</a>
-
-                <a href="#" class="btn btn-primary" role="button" onclick="ExportToExcel('xlsx')">
-                <i class="fas fa-file-excel"></i> Export To Excel</a>
             <!--% } %-->
             
             <br><br>
-            <table id="report_table" class="table table-bordered table-hover border-primary" style="background-color: bisque;">
+            <table class="table table-bordered table-hover border-primary" style="background-color: bisque;">
                <tr>
                   <% if ( survey.type == "True/False" ) { %>
                     <th class="text-center col-6">Question</th>
