@@ -316,19 +316,18 @@ Mostafa Asaad
   animation-fill-mode: forwards;
 }
 
-.groupRow{
+/*.groupRow{
   display: flex;
   align-items: center;
   justify-content: center; 
   width: 100%;
 }
+*/
 
 .column {
-  float:left;
-  width:50%;
-  padding:10px;
   color:white;
 }
+
 
 @keyframes newsurvey {
   0% {
