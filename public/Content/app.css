@@ -397,3 +397,10 @@ Mostafa Asaad
     transform: scale(1);
   }
 }
+
+#swoosh {
+  margin-left: -50px;
+}
+#swoosh {
+  margin-right: -50px;
+}
