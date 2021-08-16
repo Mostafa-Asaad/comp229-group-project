@@ -23,7 +23,7 @@
 
   <!-- Main Content -->
 <main class="container" style="background-color: cornsilk;">
-    <div class ="container-fluid">
+    
         <div class="row justify-content-center">
             <div class="col-5 align-self-start">
                 <h1 style="color: white; margin-top: 80px; margin-bottom: 80px;">Available surveys</h1>
@@ -59,7 +59,7 @@
 
             </div>
         </div>
-            <div class="offset-md-1 col-md-11 text-center">
+            <div class="col-md-11 text-center">
                     <div class="row">
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
                     <% if(typeof userId=='string' && userId ) {%>
@@ -108,10 +108,11 @@
                         
                     <% } } %>
                     
-                        </div>
+                </div>
             </div>
-        </div>
+        
     </div>
+    
 </main>
   
 <%- include ../partials/bottom_nav.ejs %>  

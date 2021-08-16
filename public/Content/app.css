@@ -189,11 +189,6 @@ Mohammed Husain
   margin-top: 80px;
 }
 
-.btn {
-  background-color: #061ce0 !important;
-  color: #ffff;
-}
-
 .btn1 {
   margin-top: 90px;
   padding-left: 9%;
@@ -325,9 +320,8 @@ Mostafa Asaad
 */
 
 .column {
-  color:white;
+  color: white;
 }
-
 
 @keyframes newsurvey {
   0% {

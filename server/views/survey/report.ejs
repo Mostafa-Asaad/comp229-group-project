@@ -3,20 +3,14 @@
 <%- include ../partials/main_nav.ejs %>
 
 <!-- Main Content -->
-  <main class="container" style="background-color: cornsilk;">
+  <main class="container">
     <div class="row">
-        <div class="offset-md-1 col-md-10">
-            <!--% if(typeof displayName=='string' && displayName) {%-->
+        <div class="col-md-10">
             <h1 style="color: white"><%= title %></h1>
-                <a href="/survey-list" class="btn btn-primary" role="button">
-                <i class="fa fa-reply"></i> Back to survey list</a>
-
+                
                 <a href="#" class="btn btn-primary" role="button" onclick="ExportToExcel('xlsx')">
                 <i class="fas fa-file-excel"></i> Export To Excel</a>
-            <!--% } %-->
-            
-            <br><br>
-            <table id="report_table" class="table table-bordered table-hover border-primary" style="background-color: bisque;">
+                <table id="report_table" class="table table-bordered table-hover border-primary ghost" style="background-color: bisque;">
                <tr>
                   <% if ( survey.type == "True/False" ) { %>
                     <th class="text-center col-6">Question</th>
@@ -49,6 +43,7 @@
                         <td class="text-center col-1"><%= good[i] %></td>
                         <td class="text-center col-2"><%= veryGood[i] %></td>
                         <td class="text-center col-2"><%= excellent[i] %></td>
+                        
                       <% } %>
                     </tr>
                   <% } %>
@@ -56,8 +51,9 @@
             </table>
         </div>
     </div>
-  </main>
 
+
+</main>
 <%- include ../partials/bottom_nav.ejs %>  
 
 <%- include ../partials/footer.ejs %>
