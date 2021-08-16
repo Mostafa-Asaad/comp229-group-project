@@ -196,7 +196,7 @@ module.exports.displayViewPage = (req, res, next) => {
 module.exports.processViewPage = (req, res, next) => {
     let id = req.params.id
     let answer = [];
-    answer.push([req.body.a1, req.body.a2, req.body.a3, req.body.a4, req.body.a5])
+    answer.push([req.body.a0, req.body.a1, req.body.a2, req.body.a3, req.body.a4])
 
     let newSurveySubmit = SurveySubmit({
         "surveyId": id,
@@ -241,11 +241,11 @@ module.exports.processSurveyViewPage = (req, res, next) => {
     let id = req.params.id
 
     let answer = [];
+    answer.push(req.body.a0);
     answer.push(req.body.a1);
     answer.push(req.body.a2);
     answer.push(req.body.a3);
     answer.push(req.body.a4);
-    answer.push(req.body.a5);
 
     let newSurveySubmit = SurveySubmit({
         "surveyId": id,
