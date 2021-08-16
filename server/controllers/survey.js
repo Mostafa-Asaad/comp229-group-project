@@ -334,8 +334,8 @@ module.exports.displayReportViewPage = (req, res, next) => {
                     });
                 }
                 if ( survey.type == "Scale" ) {
-                    console.log(veryBad.length);
-                    console.log(excellent.length);
+                    console.log(veryBad);
+                    console.log(excellent);
                     res.render('survey/report', 
                     {
                         title: survey.title,
