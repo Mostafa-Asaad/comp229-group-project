@@ -246,7 +246,6 @@ module.exports.processSurveyViewPage = (req, res, next) => {
     answer.push(req.body.a2);
     answer.push(req.body.a3);
     answer.push(req.body.a4);
-
     let newSurveySubmit = SurveySubmit({
         "surveyId": id,
         "answer": answer
@@ -300,21 +299,20 @@ module.exports.displayReportViewPage = (req, res, next) => {
                             }
                         }
                         if ( survey.type == "Scale" ) {
-
-                            switch (docs[j].answer[i]) {
-                                case "very bad":
+                            switch (docs[j].answer[i]) {                                
+                                case '0':
                                     veryBad[i]++;
                                     break;
-                                case "bad":
+                                case '1':
                                     bad[i]++;
                                     break;
-                                case "good":
+                                case "2":
                                     good[i]++;
                                     break;
-                                case "very good":
+                                case "3":
                                     veryGood[i]++;
                                     break;
-                                case "excellent":
+                                case "4":
                                     excellent[i]++;
                                     break;
                                 default:
@@ -336,6 +334,8 @@ module.exports.displayReportViewPage = (req, res, next) => {
                     });
                 }
                 if ( survey.type == "Scale" ) {
+                    console.log(veryBad.length);
+                    console.log(excellent.length);
                     res.render('survey/report', 
                     {
                         title: survey.title,
