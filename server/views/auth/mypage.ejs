@@ -27,10 +27,12 @@
     
     <div class="row justify-content-center">
             <div class="col-5 align-self-start">
+            <!-- page title -->
                 <h1 style="color: white; margin-top: 80px; margin-bottom: 80px;">My surveys</h1>
             </div>
             <div class="col-4 align-self-end">
                 <% if(typeof userId=='string' && userId ) {%>
+                <!-- new survey button-->
                 <div class="card-body" style="margin-top: 50px; margin-bottom: 80px; border-radius: 15px 50px; border: 2px solid #1663be; background-color: transparent;">
                 <div class ="container-fluid">
                     <div class="row justify-content-center">
@@ -61,7 +63,7 @@
             </div>
             
 
-            <!-- Show message that only login users can access the survey -->
+            <!-- my surveys cards-->
 
             <div class="col-md-11 text-center">
             
@@ -75,7 +77,6 @@
                                     <div class="card text-center popup2" style="background-color: transparent; margin-bottom: 75px;" class="d-flex">
                                         <div class="card-header  text-muted" style="color:white; font-family: Courier; font-size:120%;">
                                         </div>
-                                        <!--<div class="card-body" style="border-radius: 15px 50px; background-color: #1663be;   cursor: pointer; cursor: hand;" onclick="window.location='/survey-list/survey/<%= SurveyList[count]._id %>';">-->
                                             <div class="card-body" style="border-radius: 15px 50px; background-color: #1663be;   cursor: pointer; cursor: hand;" onclick="window.location='/survey-list/report/<%= SurveyList[count]._id %>';">
                                             <div class="row">
                                                 <div class="col-4">
@@ -86,6 +87,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- classify surveys by end date-->
                                         <% if ( today >= SurveyList[count].startdate && today <= SurveyList[count].enddate) {%>
                                             <div class="card-footer"  style=" color:white; font-family: Courier;  font-size:120%;">
                                                 Available until: <%= SurveyList[count].enddate.toISOString().split('T')[0] %>
@@ -101,7 +103,7 @@
                                         <%}%>
                                     </div>
                             </div>
-
+                            <!-- edit and delete buttons-->
                             <div class="col">
                             <a class=" popup2" href="/survey-list/edit/<%= SurveyList[count]._id %>">
                             <i style="margin-top: 55px; cursor: pointer; cursor: hand; color: limegreen;" class="fas fa-3x fa-pen-square"></i></a>
@@ -112,7 +114,7 @@
                             <i style="margin-top: 55px; cursor: pointer; cursor: hand; color: red;" class="fas fa-3x fa-trash-alt popup2"></i></a>
                             </div>
                     <% } } } else { %>
-
+                    <!-- in case not logged in-->
                         <div class="container px-4">
                             <div class="row gx-5">
                                 <div style="margin-bottom: 30px; cursor: pointer; cursor: hand;" class="col" onclick ="location.href='/login';">

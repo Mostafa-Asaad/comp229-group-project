@@ -22,22 +22,22 @@
 
 <%- include ../partials/main_nav.ejs %>
 
-<!-- Content for the Edit page -->
+<!-- Content for the survey page -->
 <div class="container">
     <div class="row">
         <div class="col">
-          <!--<h1><%= title %></h1>-->
+          
             <form class="form" method="POST">
               <div class="form-group">
-                <!--label-- for="NameTextField">Title</!--label-->
-                <h1 style="color: white; margin-top: 80px; margin-bottom: 80px; margin-left: 100px;"><%= title %></h1>
+              <!-- title -->  
+                <h1 style="color: white; margin-top: 80px; margin-bottom: 80px; margin-left: 100px;">Survey: <%= title %></h1>
                 
                 <% for (i=0; i < 5; i++) { %> 
-                  
+                  <!-- each question -->
                   <div class="row justify-content-center">
                   <div style="color: white; margin-top: 50px;" class="h5 p-1 bd-highlight text-center"><%= survey.question[i] %></div>
                   
-                
+                <!-- Cards for true/false surveys -->
                   <% if ( survey.type == "True/False") { %>
                   <div class="col-6">
                   <div class="card-body" style="border-radius: 15px 50px; background-color: grey;">
@@ -58,7 +58,7 @@
                   </div>
                   </div>
                   <% } %>
-
+                  <!-- Cards for scale surveys -->
                   <% if ( survey.type == "Scale") { %>
                     <% let scale = ['very bad','bad', 'good', 'very good', 'excellent'] %>
                       <div class="form-check">
@@ -84,6 +84,7 @@
                 
 
               <div>
+              <!-- buttons -->
               <div class="row justify-content-end">
               <div class="col-1">
                 <button class="btn btn-primary"  style="margin-bottom: 50px; margin-top: 50px;"type="submit">

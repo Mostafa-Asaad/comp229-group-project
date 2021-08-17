@@ -27,9 +27,11 @@
     
         <div class="row justify-content-center">
             <div class="col-5 align-self-start">
+            <!-- title-->
                 <h1 style="color: white; margin-top: 80px; margin-bottom: 80px;">Available surveys</h1>
             </div>
             <div class="col-4 align-self-end">
+            <!-- create new survey button-->
                 <% if(typeof userId=='string' && userId ) {%>
                 <div class="card-body" style="margin-top: 50px; margin-bottom: 80px; border-radius: 15px 50px; border: 2px solid #1663be; background-color: transparent;">
                 <div class ="container-fluid">
@@ -60,6 +62,7 @@
 
             </div>
         </div>
+        <!-- survey cards in case logged in-->
             <div class="col-md-11 text-center">
                     <div class="row">
                 <% for(let count = 0; count < SurveyList.length; count++) { %>
@@ -84,7 +87,7 @@
                                     </div>
                                 </div>
                     <% } } else { %>
-                    
+                    <!-- survey cards in case not logged in-->
                             <% if ( today >= SurveyList[count].startdate && today <= SurveyList[count].enddate) {%>
                                 <div class="col-6">    
                                     <div class="card text-center popup" style="background-color: transparent; margin-bottom: 75px;" class="d-flex">
