@@ -27,10 +27,22 @@
   <div class="container">
     <div class="row">
         <div class="col-md-10">
+        <!-- tittle -->
             <h1 style="color: white; margin-left: 100px; margin-top: 50px">Survey: <%= title %></h1>
-                
+          <!-- progress bar -->
+            <div class="position-relative m-4 d-none d-lg-block">
+              <div class="progress" style="height: 1px;  margin-left: 200px; margin-top: 60px;">
+                <div class="progress-bar d-none d-lg-block" role="progressbar" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <span  style="margin-left: 170px;" class="badge  bg-primary position-absolute top-0 start-0 translate-middle  d-none d-lg-block rounded-pill">Sign Up</span>
+              <span style="margin-left: 100px;" class="badge  bg-primary position-absolute top-0 start-50 translate-middle  d-none d-lg-block rounded-pill">Create New Survey</span>
+              <span style="margin-left: 30px;" class="badge  bg-primary position-absolute top-0 start-100 translate-middle  d-none d-lg-block rounded-pill ">Get Results</span>
+            </div> 
+            <!-- export button -->
                 <a href="#" class="btn btn-primary" style="margin-top: 50px; margin-left: 100px" role="button" onclick="ExportToExcel('xlsx')">
                 <i class="fas fa-file-excel"></i> Export To Excel</a>
+
+                <!-- report table based on its type -->
                 <table id="report_table" class="table table-bordered border-primary ghost" style="background-color: black; color: white; margin-top: 20px; margin-left: 100px">
                <tr>
                   <% if ( survey.type == "True/False" ) { %>
@@ -46,7 +58,7 @@
                      <th class="text-center col-2">Very Good</th>
                      <th class="text-center col-2">Excellent</th> 
                   <% } %>
-                  
+              
                </tr>
                
                 <% if ( votes > 0)  { %>
@@ -118,7 +130,7 @@
     </div>
   </div>
  
-
+<!-- charts 1 - 2- 3- 4 -5 for Scale surveys -->
 <script>
 
 let ctx1 = document.getElementById('myChart1').getContext('2d');
@@ -232,6 +244,7 @@ let myChart5 = new Chart(ctx5, {
     }
 });
 
+
 </script>
 
 <!-- True/False survey -->
@@ -279,9 +292,7 @@ let myChart5 = new Chart(ctx5, {
   </div>
  
 
-  
-
-
+<!-- charts 1 - 2- 3- 4 -5 for true-false surveys -->
 
 <script>
 

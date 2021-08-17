@@ -23,14 +23,16 @@
 
 <%- include ../partials/main_nav.ejs %>
 
-<!-- Content for the Add page -->
+<!-- Content for the login page -->
+
+<!-- side image -->
 <div class='container-fluid'>
   <div class="row outerDiv">
     <div class="col-xs-3 col-md-2 imageDiv d-none d-lg-block">
        <img class="img-responsive" style="margin-top: 50%" id="swoosh" src="../Assets/images/sideimagel.png">
     </div>
     <div class="col">
-<div class="container">
+    <div class="container">
     <% if(messages.length > 0) {%>
         <div class="alert alert-danger">
             <%= messages %>
@@ -38,16 +40,16 @@
     <% } %>
     
     <div class="row justify-content-center">
-      
+     <!-- logo --> 
     <a href="/"><img style= "margin-top:75px;" class = "loginlogo d-none d-lg-block" src="../../../Assets/images/team_logo.png"/></a>
     
     <div class ="col-6"  style= "margin-top:75px;">
         
         
         
-        
+        <!-- tittle -->
             <p style="font-family: Courier; font-size:200%; text-align:center; color: #1b7ced;" >Please Login</p>
-
+            <!-- login form -->
             <form method="POST" autocomplete="off">
 
                 <fieldset class="form-group" style= "margin-bottom:15px;">
@@ -64,17 +66,15 @@
                     placeholder="Enter password"
                     name="password" required>
                 </fieldset>
-
+                <!-- link to the sign up page -->
                 <p style="color: white;" >Don't have an account? <a href="/register">Join Now</a></p>    
-                 
+                 <!-- buttons -->
                 <fieldset class="form-group text-right">
                     <button type="submit" class="btn btn-primary">Login</button>
                     <a href="/"><input type="button" class="btn btn-warning" value="Cancel"></a>
                     
                 </fieldset>
             </form>
-
-            <img src="../Assets/images/loginimage.png" style= "margin-top:30px;" class="login-img d-none d-lg-block" alt="login">
             
         
         
